@@ -1,0 +1,38 @@
+<doctrine-mapping xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <mapped-superclass name="Setono\SyliusShopTheLookPlugin\Model\Look"
+                       table="setono_sylius_shop_the_look__look">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="name"/>
+        <field name="slug" unique="true"/>
+        <field name="description" type="text" nullable="true"/>
+
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <many-to-many field="products" target-entity="Sylius\Component\Product\Model\ProductInterface">
+            <join-table name="setono_sylius_shop_the_look__look_products">
+                <join-columns>
+                    <join-column name="look_id" nullable="false" referenced-column-name="id" on-delete="CASCADE" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="product_id" nullable="false" referenced-column-name="id" on-delete="CASCADE" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <one-to-many field="images" target-entity="Setono\SyliusShopTheLookPlugin\Model\LookImageInterface" mapped-by="owner" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+    </mapped-superclass>
+</doctrine-mapping>
