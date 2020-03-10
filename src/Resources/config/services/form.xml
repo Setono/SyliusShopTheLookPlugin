@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="setono_sylius_shop_the_look.form.type.look.validation_groups" type="collection">
+            <parameter>setono_sylius_shop_the_look</parameter>
+        </parameter>
+
+        <parameter key="setono_sylius_shop_the_look.form.type.look_part.validation_groups" type="collection">
+            <parameter>setono_sylius_shop_the_look</parameter>
+        </parameter>
+
+        <parameter key="setono_sylius_shop_the_look.form.type.look_image.validation_groups" type="collection">
+            <parameter>setono_sylius_shop_the_look</parameter>
+        </parameter>
+
+        <parameter key="setono_sylius_shop_the_look.form.type.look_translation.validation_groups" type="collection">
+            <parameter>setono_sylius_shop_the_look</parameter>
+        </parameter>
+    </parameters>
+    <services>
+        <service id="setono_sylius_shop_the_look.form.type.look"
+                 class="Setono\SyliusShopTheLookPlugin\Form\Type\LookType">
+            <argument>%setono_sylius_shop_the_look.model.look.class%</argument>
+            <argument>%setono_sylius_shop_the_look.form.type.look.validation_groups%</argument>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="setono_sylius_shop_the_look.form.type.look_part"
+                 class="Setono\SyliusShopTheLookPlugin\Form\Type\LookPartType">
+            <argument>%setono_sylius_shop_the_look.model.look_part.class%</argument>
+            <argument>%setono_sylius_shop_the_look.form.type.look_part.validation_groups%</argument>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="setono_sylius_shop_the_look.form.type.look_image"
+                 class="Setono\SyliusShopTheLookPlugin\Form\Type\LookImageType">
+            <argument>%setono_sylius_shop_the_look.model.look_image.class%</argument>
+            <argument>%setono_sylius_shop_the_look.form.type.look_image.validation_groups%</argument>
+            <tag name="form.type"/>
+        </service>
+
+        <service id="setono_sylius_shop_the_look.form.type.look_translation"
+                 class="Setono\SyliusShopTheLookPlugin\Form\Type\LookTranslationType">
+            <argument>%setono_sylius_shop_the_look.model.look_translation.class%</argument>
+            <argument>%setono_sylius_shop_the_look.form.type.look_translation.validation_groups%</argument>
+            <tag name="form.type"/>
+        </service>
+    </services>
+</container>

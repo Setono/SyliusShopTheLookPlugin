@@ -1,0 +1,2 @@
+setono_sylius_shop_the_look:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes.yaml"

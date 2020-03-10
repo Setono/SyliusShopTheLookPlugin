@@ -1,0 +1,16 @@
+setono_sylius_shop_the_look:
+    form:
+        look:
+            description: Description
+            images: Images
+            name: Name
+            parts: Parts
+            products: Products
+            slug: Slug
+            translations: Translations
+        look_part:
+            name: Name
+    ui:
+        looks: Looks
+        manage_looks: Manage looks
+        new_look: New look

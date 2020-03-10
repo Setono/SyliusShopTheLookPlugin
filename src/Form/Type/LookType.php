@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Setono\SyliusShopTheLookPlugin\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class LookType extends AbstractResourceType
@@ -15,17 +14,9 @@ final class LookType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'setono_sylius_shop_the_look.form.look.name',
-            ])
-            ->add('slug', TextType::class, [
-                'label' => 'setono_sylius_shop_the_look.form.look.slug',
-            ])
-            ->add('description', TextareaType::class, [
-                'label' => 'setono_sylius_shop_the_look.form.look.description',
-            ])
-            ->add('products', TextareaType::class, [
-                'label' => 'setono_sylius_shop_the_look.form.look.products',
+            ->add('translations', ResourceTranslationsType::class, [
+                'entry_type' => LookTranslationType::class,
+                'label' => 'setono_sylius_shop_the_look.form.look.translations',
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => LookImageType::class,
@@ -33,6 +24,15 @@ final class LookType extends AbstractResourceType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'label' => 'setono_sylius_shop_the_look.form.look.images',
+                'block_name' => 'entry',
+            ])
+            ->add('parts', CollectionType::class, [
+                'entry_type' => LookPartType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'prototype' => true,
+                'label' => 'setono_sylius_shop_the_look.form.look.parts',
                 'block_name' => 'entry',
             ])
         ;

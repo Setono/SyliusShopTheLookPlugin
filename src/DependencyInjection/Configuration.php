@@ -4,16 +4,24 @@ declare(strict_types=1);
 
 namespace Setono\SyliusShopTheLookPlugin\DependencyInjection;
 
+use Setono\SyliusShopTheLookPlugin\Doctrine\ORM\LookRepository;
+use Setono\SyliusShopTheLookPlugin\Form\Type\LookImageType;
+use Setono\SyliusShopTheLookPlugin\Form\Type\LookTranslationType;
 use function method_exists;
+use Setono\SyliusShopTheLookPlugin\Form\Type\LookPartType;
 use Setono\SyliusShopTheLookPlugin\Form\Type\LookType;
 use Setono\SyliusShopTheLookPlugin\Model\Look;
 use Setono\SyliusShopTheLookPlugin\Model\LookImage;
 use Setono\SyliusShopTheLookPlugin\Model\LookImageInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
+use Setono\SyliusShopTheLookPlugin\Model\LookPart;
+use Setono\SyliusShopTheLookPlugin\Model\LookPartInterface;
+use Setono\SyliusShopTheLookPlugin\Model\LookTranslation;
+use Setono\SyliusShopTheLookPlugin\Model\LookTranslationInterface;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
-use Sylius\Bundle\ResourceBundle\Form\Type\DefaultResourceType;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Sylius\Component\Resource\Factory\Factory;
+use Sylius\Component\Resource\Factory\TranslatableFactory;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -61,8 +69,42 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('model')->defaultValue(Look::class)->cannotBeEmpty()->end()
                                         ->scalarNode('interface')->defaultValue(LookInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('repository')->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->defaultValue(LookRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(LookType::class)->end()
+                                        ->scalarNode('factory')->defaultValue(Factory::class)->end()
+                                    ->end()
+                                ->end()
+                                ->arrayNode('translation')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->variableNode('options')->end()
+                                        ->arrayNode('classes')
+                                            ->addDefaultsIfNotSet()
+                                            ->children()
+                                                ->scalarNode('model')->defaultValue(LookTranslation::class)->cannotBeEmpty()->end()
+                                                ->scalarNode('interface')->defaultValue(LookTranslationInterface::class)->cannotBeEmpty()->end()
+                                                ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                                ->scalarNode('repository')->cannotBeEmpty()->end()
+                                                ->scalarNode('form')->defaultValue(LookTranslationType::class)->cannotBeEmpty()->end()
+                                                ->scalarNode('factory')->defaultValue(TranslatableFactory::class)->end()
+                                            ->end()
+                                        ->end()
+                                    ->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                        ->arrayNode('look_part')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->variableNode('options')->end()
+                                ->arrayNode('classes')
+                                    ->addDefaultsIfNotSet()
+                                    ->children()
+                                        ->scalarNode('model')->defaultValue(LookPart::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('interface')->defaultValue(LookPartInterface::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->cannotBeEmpty()->end()
+                                        ->scalarNode('form')->defaultValue(LookPartType::class)->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
                                 ->end()
@@ -79,7 +121,7 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('interface')->defaultValue(LookImageInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->cannotBeEmpty()->end()
-                                        ->scalarNode('form')->defaultValue(DefaultResourceType::class)->end()
+                                        ->scalarNode('form')->defaultValue(LookImageType::class)->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
                                 ->end()

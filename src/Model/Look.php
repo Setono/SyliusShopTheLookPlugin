@@ -7,28 +7,25 @@ namespace Setono\SyliusShopTheLookPlugin\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImageInterface;
-use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
-use Webmozart\Assert\Assert;
+use Sylius\Component\Resource\Model\TranslatableTrait;
 
 class Look implements LookInterface
 {
     use TimestampableTrait;
+    use TranslatableTrait {
+        __construct as private initializeTranslationsCollection;
+        getTranslation as private doGetTranslation;
+    }
 
     protected int $id;
 
-    protected string $name;
-
-    protected ?string $description;
-
-    protected string $slug;
-
     /**
-     * @var Collection|ProductInterface[]
+     * @var Collection|LookPartInterface[]
      *
-     * @psalm-var Collection<array-key, ProductInterface>
+     * @psalm-var Collection<array-key, LookPartInterface>
      */
-    protected Collection $products;
+    protected Collection $parts;
 
     /**
      * @var Collection|ImageInterface[]
@@ -39,7 +36,8 @@ class Look implements LookInterface
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->initializeTranslationsCollection();
+        $this->parts = new ArrayCollection();
         $this->images = new ArrayCollection();
     }
 
@@ -50,39 +48,59 @@ class Look implements LookInterface
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->getTranslation()->getName();
     }
 
     public function setName(string $name): void
     {
-        $this->name = $name;
+        $this->getTranslation()->setName($name);
     }
 
     public function getDescription(): ?string
     {
-        return $this->description;
+        return $this->getTranslation()->getDescription();
     }
 
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->getTranslation()->setDescription($description);
     }
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return $this->getTranslation()->getSlug();
     }
 
     public function setSlug(?string $slug): void
     {
-        Assert::notNull($slug, 'The slug cannot be null');
-
-        $this->slug = $slug;
+        $this->getTranslation()->setSlug($slug);
     }
 
-    public function getProducts(): Collection
+    public function getParts(): Collection
     {
-        return $this->products;
+        return $this->parts;
+    }
+
+    public function hasParts(): bool
+    {
+        return !$this->parts->isEmpty();
+    }
+
+    public function hasPart(LookPartInterface $part): bool
+    {
+        return $this->parts->contains($part);
+    }
+
+    public function addPart(LookPartInterface $part): void
+    {
+        $this->parts->add($part);
+    }
+
+    public function removePart(LookPartInterface $part): void
+    {
+        if ($this->hasPart($part)) {
+            $this->parts->removeElement($part);
+        }
     }
 
     public function getImages(): Collection
@@ -92,7 +110,7 @@ class Look implements LookInterface
 
     public function getImagesByType(string $type): Collection
     {
-        return $this->images->filter(function (ImageInterface $image) use ($type): bool {
+        return $this->images->filter(static function (ImageInterface $image) use ($type): bool {
             return $type === $image->getType();
         });
     }
@@ -119,5 +137,18 @@ class Look implements LookInterface
             $image->setOwner(null);
             $this->images->removeElement($image);
         }
+    }
+
+    public function getTranslation(?string $locale = null): LookTranslationInterface
+    {
+        /** @var LookTranslationInterface $translation */
+        $translation = $this->doGetTranslation($locale);
+
+        return $translation;
+    }
+
+    protected function createTranslation(): LookTranslation
+    {
+        return new LookTranslation();
     }
 }

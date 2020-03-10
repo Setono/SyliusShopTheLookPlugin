@@ -1,0 +1,18 @@
+sylius_grid:
+    grids:
+        setono_sylius_shop_the_look_admin_look:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%setono_sylius_shop_the_look.model.look.class%"
+                    repository:
+                        method: createListQueryBuilder
+            limits: [25, 50, 100]
+            fields:
+                name:
+                    type: string
+                    label: setono_sylius_shop_the_look.ui.name
+            actions:
+                main:
+                    create:
+                        type: create

@@ -1,0 +1,3 @@
+setono_sylius_shop_the_look_admin:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes/admin.yaml"
+    prefix: /admin

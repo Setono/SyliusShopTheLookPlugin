@@ -6,10 +6,6 @@
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="name"/>
-        <field name="slug" unique="true"/>
-        <field name="description" type="text" nullable="true"/>
-
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
         </field>
@@ -18,16 +14,11 @@
             <gedmo:timestampable on="update"/>
         </field>
 
-        <many-to-many field="products" target-entity="Sylius\Component\Product\Model\ProductInterface">
-            <join-table name="setono_sylius_shop_the_look__look_products">
-                <join-columns>
-                    <join-column name="look_id" nullable="false" referenced-column-name="id" on-delete="CASCADE" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="product_id" nullable="false" referenced-column-name="id" on-delete="CASCADE" />
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
+        <one-to-many field="parts" target-entity="Setono\SyliusShopTheLookPlugin\Model\LookPartInterface" mapped-by="look" orphan-removal="true">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
 
         <one-to-many field="images" target-entity="Setono\SyliusShopTheLookPlugin\Model\LookImageInterface" mapped-by="owner" orphan-removal="true">
             <cascade>

@@ -1,0 +1,15 @@
+setono_sylius_shop_the_look_admin_look:
+    resource: |
+        alias: setono_sylius_shop_the_look.look
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: index
+        grid: setono_sylius_shop_the_look_admin_look
+        vars:
+            all:
+                subheader: setono_sylius_shop_the_look.ui.manage_looks
+                templates:
+                    form: "@SetonoSyliusShopTheLookPlugin/admin/look/_form.html.twig"
+            index:
+                icon: 'images outline'
+    type: sylius.resource
