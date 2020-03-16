@@ -58,13 +58,15 @@
     "prefer-stable": true,
     "scripts": {
         "analyse": [
-            "vendor/bin/phpstan analyse -c phpstan.neon -l max src",
-            "vendor/bin/psalm"
+            "@phpstan",
+            "@psalm"
         ],
-        "check-style": "vendor/bin/ecs check src/ tests/",
-        "fix-style": "vendor/bin/ecs check src/ tests/ --fix",
+        "check-style": "vendor/bin/ecs check src/",
+        "fix-style": "vendor/bin/ecs check src/ --fix",
         "phpspec": "vendor/bin/phpspec run -vvv",
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon -l max src/",
         "phpunit": "vendor/bin/phpunit",
+        "psalm": "vendor/bin/psalm --show-info=true",
         "tests": [
             "@phpspec",
             "@phpunit"
