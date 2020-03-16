@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Setono\SyliusShopTheLookPlugin\DependencyInjection;
 
+use Setono\SyliusShopTheLookPlugin\Doctrine\ORM\LookImageRepository;
+use Setono\SyliusShopTheLookPlugin\Doctrine\ORM\LookPartRepository;
 use Setono\SyliusShopTheLookPlugin\Doctrine\ORM\LookRepository;
 use Setono\SyliusShopTheLookPlugin\Form\Type\LookImageType;
-use Setono\SyliusShopTheLookPlugin\Form\Type\LookTranslationType;
-use function method_exists;
 use Setono\SyliusShopTheLookPlugin\Form\Type\LookPartType;
+use Setono\SyliusShopTheLookPlugin\Form\Type\LookTranslationType;
 use Setono\SyliusShopTheLookPlugin\Form\Type\LookType;
 use Setono\SyliusShopTheLookPlugin\Model\Look;
 use Setono\SyliusShopTheLookPlugin\Model\LookImage;
@@ -103,7 +104,7 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('model')->defaultValue(LookPart::class)->cannotBeEmpty()->end()
                                         ->scalarNode('interface')->defaultValue(LookPartInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('repository')->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->defaultValue(LookPartRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(LookPartType::class)->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
@@ -120,7 +121,7 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('model')->defaultValue(LookImage::class)->cannotBeEmpty()->end()
                                         ->scalarNode('interface')->defaultValue(LookImageInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('repository')->cannotBeEmpty()->end()
+                                        ->scalarNode('repository')->defaultValue(LookImageRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(LookImageType::class)->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                     ->end()
