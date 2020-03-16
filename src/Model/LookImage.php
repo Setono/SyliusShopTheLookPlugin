@@ -8,4 +8,8 @@ use Sylius\Component\Core\Model\Image;
 
 class LookImage extends Image implements LookImageInterface
 {
+    public function setLook(?LookInterface $look): void
+    {
+        $this->setOwner($look);
+    }
 }

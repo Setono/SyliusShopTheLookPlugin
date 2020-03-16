@@ -8,4 +8,5 @@ use Sylius\Component\Core\Model\ImageInterface;
 
 interface LookImageInterface extends ImageInterface
 {
+    public function setLook(?LookInterface $look): void;
 }

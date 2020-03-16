@@ -16,10 +16,20 @@ interface LookPartInterface extends ResourceInterface
 
     public function getLook(): ?LookInterface;
 
+    public function setLook(?LookInterface $look): void;
+
     /**
      * @return Collection|ProductInterface[]
      *
      * @psalm-return Collection<array-key, ProductInterface>
      */
     public function getProducts(): Collection;
+
+    public function hasProducts(): bool;
+
+    public function hasProduct(ProductInterface $product): bool;
+
+    public function addProduct(ProductInterface $product): void;
+
+    public function removeProduct(ProductInterface $product): void;
 }
