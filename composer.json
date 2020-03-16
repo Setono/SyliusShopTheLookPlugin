@@ -58,8 +58,7 @@
     "prefer-stable": true,
     "scripts": {
         "analyse": [
-            "@phpstan",
-            "@psalm"
+            "@phpstan"
         ],
         "check-style": "vendor/bin/ecs check src/",
         "fix-style": "vendor/bin/ecs check src/ --fix",
