@@ -14,3 +14,7 @@ setono_sylius_shop_the_look:
         looks: Looks
         manage_looks: Manage looks
         new_look: New look
+        edit_look: Edit look
+        name: Name
+        parts: Parts
+        no_parts: No parts

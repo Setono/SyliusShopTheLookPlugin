@@ -12,7 +12,17 @@ sylius_grid:
                 name:
                     type: string
                     label: setono_sylius_shop_the_look.ui.name
+                parts:
+                    type: twig
+                    label: setono_sylius_shop_the_look.ui.parts
+                    options:
+                        template: "@SetonoSyliusShopTheLookPlugin/admin/grid/field/parts.html.twig"
             actions:
                 main:
                     create:
                         type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

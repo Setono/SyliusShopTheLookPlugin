@@ -1,0 +1,6 @@
+{% for part in data %}
+    {%- if loop.index0 != 0 %}, {% endif -%}
+    {{- part.name -}}
+{% else %}
+    {{ 'setono_sylius_shop_the_look.ui.no_parts'|trans }}
+{% endfor %}
