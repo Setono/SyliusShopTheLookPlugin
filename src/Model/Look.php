@@ -21,6 +21,8 @@ class Look implements LookInterface
 
     protected ?int $id = null;
 
+    protected ?string $code = null;
+
     /**
      * @var Collection|LookPartInterface[]
      *
@@ -45,6 +47,16 @@ class Look implements LookInterface
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): void
+    {
+        $this->code = $code;
     }
 
     public function getName(): ?string
