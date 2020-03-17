@@ -1,0 +1,23 @@
+setono_sylius_shop_the_look:
+    look:
+        slug:
+            not_blank: Please enter look slug.
+            unique: Look slug must be unique.
+            max_length: Look slug must not be longer than 1 character.|Look slug must not be longer than {{ limit }} characters.
+        code:
+            not_blank: Please enter look code.
+            regex: Look code can only be comprised of letters, numbers, dashes and underscores.
+            unique: Look code must be unique.
+        name:
+            not_blank: Please enter look name.
+            min_length: Look name must be at least 1 character long.|Look name must be at least {{ limit }} characters long.
+            max_length: Look name must not be longer than 1 character.|Look name must not be longer than {{ limit }} characters.
+    look_image:
+        file:
+            max_size: The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.
+            upload_ini_size: The image is too big. Maximum allowed size is {{ limit }}{{ suffix }}.
+    look_part:
+        name:
+            not_blank: Please enter look part name.
+            min_length: Look part name must be at least 1 character long.|Look part name must be at least {{ limit }} characters long.
+            max_length: Look part name must not be longer than 1 character.|Look part name must not be longer than {{ limit }} characters.

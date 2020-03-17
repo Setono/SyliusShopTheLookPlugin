@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="Setono\SyliusShopTheLookPlugin\Model\LookTranslation">
+
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">setono_sylius_shop_the_look.look.name.not_blank</option>
+                <option name="groups">setono_sylius_shop_the_look</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">setono_sylius_shop_the_look.look.name.min_length</option>
+                <option name="max">255</option>
+                <option name="maxMessage">setono_sylius_shop_the_look.look.name.max_length</option>
+                <option name="groups">setono_sylius_shop_the_look</option>
+            </constraint>
+        </property>
+
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">
+                <value>locale</value>
+                <value>slug</value>
+            </option>
+            <option name="errorPath">slug</option>
+            <option name="message">setono_sylius_shop_the_look.look.slug.unique</option>
+            <option name="groups">setono_sylius_shop_the_look</option>
+        </constraint>
+
+        <property name="slug">
+            <constraint name="NotBlank">
+                <option name="message">setono_sylius_shop_the_look.look.slug.not_blank</option>
+                <option name="groups">setono_sylius_shop_the_look</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="maxMessage">setono_sylius_shop_the_look.look.slug.max_length</option>
+                <option name="groups">setono_sylius_shop_the_look</option>
+            </constraint>
+        </property>
+
+    </class>
+</constraint-mapping>
