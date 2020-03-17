@@ -24,7 +24,6 @@ final class LookType extends AbstractResourceType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'label' => 'setono_sylius_shop_the_look.form.look.images',
-                'block_name' => 'entry',
             ])
             ->add('parts', CollectionType::class, [
                 'entry_type' => LookPartType::class,
@@ -33,7 +32,6 @@ final class LookType extends AbstractResourceType
                 'by_reference' => false,
                 'prototype' => true,
                 'label' => 'setono_sylius_shop_the_look.form.look.parts',
-                'block_name' => 'entry',
             ])
         ;
     }
