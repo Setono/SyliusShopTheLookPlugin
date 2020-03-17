@@ -10,6 +10,7 @@ setono_sylius_shop_the_look:
             translations: Translations
         look_part:
             name: Name
+            products: Products
     ui:
         looks: Looks
         manage_looks: Manage looks
