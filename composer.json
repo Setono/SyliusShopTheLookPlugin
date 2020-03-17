@@ -62,11 +62,11 @@
         ],
         "check-style": "vendor/bin/ecs check src/",
         "fix-style": "vendor/bin/ecs check src/ --fix",
+        "fixtures": "(cd tests/Application && bin/console sylius:fixtures:load default -n)",
         "phpspec": "vendor/bin/phpspec run -vvv",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon -l max src/",
         "phpunit": "vendor/bin/phpunit",
         "psalm": "vendor/bin/psalm --show-info=true",
-        "fixtures": "(cd tests/Application && bin/console sylius:fixtures:load default -n)",
         "tests": [
             "@phpspec",
             "@phpunit"
