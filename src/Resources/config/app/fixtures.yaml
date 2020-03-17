@@ -1,0 +1,53 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+
+                setono_look_with_random_products_1:
+                    name: setono_look
+                    options:
+                        custom:
+                            look_1:
+                                name: 'Look with 3 random products per part'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
+                                parts: ['Hat', 'Jacket', 'Pants']
+
+                setono_look_with_random_products_2:
+                    name: setono_look
+                    options:
+                        custom:
+                            look_1:
+                                name: 'Look with random products'
+                                translations:
+                                    de_DE:
+                                        name: 'Öko look'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
+                                parts: 
+                                    -   name: 'Hat'
+                                    -   name: 'Jacket'
+                                        products: 2
+                                    -   name: 'Pants'
+                                        products: 1
+
+                setono_look_with_specific_products:
+                    name: setono_look
+                    options:
+                        custom:
+                            look_1:
+                                code: 'eco'
+                                name: 'Eco cap look'
+                                description: 'Look with eco cap'
+                                slug: 'eco-cap'
+                                translations:
+                                    de_DE:
+                                        name: 'Öko-kappe aussehen'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
+                                parts:
+                                    -   name: 'Cap'
+                                        products:
+                                            # Slug of 'Knitted white pompom cap'
+                                            # from vendor/sylius/sylius/src/Sylius/Bundle/CoreBundle/Resources/config/app/fixtures/cap.yaml
+                                            - 'knitted_white_pompom_cap'

@@ -106,8 +106,12 @@ class Look implements LookInterface
 
     public function addPart(LookPartInterface $part): void
     {
-        $part->setLook($this);
+        if ($this->hasPart($part)) {
+            return;
+        }
+
         $this->parts->add($part);
+        $part->setLook($this);
     }
 
     public function removePart(LookPartInterface $part): void
@@ -116,8 +120,8 @@ class Look implements LookInterface
             return;
         }
 
-        $part->setLook(null);
         $this->parts->removeElement($part);
+        $part->setLook(null);
     }
 
     public function getImages(): Collection
