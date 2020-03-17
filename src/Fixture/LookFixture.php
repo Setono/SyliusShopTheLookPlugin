@@ -27,7 +27,7 @@ class LookFixture extends AbstractResourceFixture
         $partsNode = $lookNode->arrayNode('parts');
         $partsNodePrototype = $partsNode->arrayPrototype();
         $partsNodePrototype->beforeNormalization()->ifString()
-            ->then(static function(string $val): array{
+            ->then(static function (string $val): array {
                 return ['name' => $val];
             })
         ;

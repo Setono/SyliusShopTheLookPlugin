@@ -201,6 +201,7 @@ class LookExampleFactory extends AbstractExampleFactory implements ExampleFactor
             ->setDefault('name', function (Options $options): string {
                 /** @var string $name */
                 $name = $this->faker->words(3, true);
+
                 return $name;
             })
 
@@ -231,6 +232,7 @@ class LookExampleFactory extends AbstractExampleFactory implements ExampleFactor
             ->setDefault('name', function (Options $options): string {
                 /** @var string $name */
                 $name = $this->faker->words(3, true);
+
                 return $name;
             })
 

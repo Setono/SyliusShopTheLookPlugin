@@ -50,9 +50,19 @@ class LookPart implements LookPartInterface
 
     public function setLook(?LookInterface $look): void
     {
+        if ($look === $this->look) {
+            return;
+        }
+
+        if (null !== $this->look) {
+            $this->look->removePart($this);
+        }
+
         $this->look = $look;
 
-        $look->addPart($this);
+        if (null !== $look) {
+            $look->addPart($this);
+        }
     }
 
     public function getProducts(): Collection
