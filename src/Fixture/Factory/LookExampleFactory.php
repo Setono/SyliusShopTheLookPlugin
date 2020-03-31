@@ -13,7 +13,6 @@ use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookPartInterface;
 use Setono\SyliusShopTheLookPlugin\Repository\LookRepositoryInterface;
 use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
-use Sylius\Bundle\CoreBundle\Fixture\Factory\ExampleFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use Sylius\Component\Core\Uploader\ImageUploaderInterface;
