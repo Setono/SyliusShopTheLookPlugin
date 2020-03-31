@@ -8,7 +8,7 @@ use Doctrine\ORM\QueryBuilder;
 use Setono\SyliusShopTheLookPlugin\Repository\LookRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-final class LookRepository extends EntityRepository implements LookRepositoryInterface
+class LookRepository extends EntityRepository implements LookRepositoryInterface
 {
     public function createListQueryBuilder(): QueryBuilder
     {

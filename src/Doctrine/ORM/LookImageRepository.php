@@ -7,6 +7,6 @@ namespace Setono\SyliusShopTheLookPlugin\Doctrine\ORM;
 use Setono\SyliusShopTheLookPlugin\Repository\LookImageRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-final class LookImageRepository extends EntityRepository implements LookImageRepositoryInterface
+class LookImageRepository extends EntityRepository implements LookImageRepositoryInterface
 {
 }
