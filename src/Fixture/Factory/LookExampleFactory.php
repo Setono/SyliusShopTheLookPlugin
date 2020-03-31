@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Setono\SyliusShopTheLookPlugin\Fixture\Factory;
 
+use Faker\Factory;
+use Faker\Generator;
 use function Safe\sprintf;
 use Setono\SyliusShopTheLookPlugin\Factory\LookPartFactoryInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookImageInterface;
@@ -24,40 +26,29 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Webmozart\Assert\Assert;
 
-class LookExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
+class LookExampleFactory extends AbstractExampleFactory
 {
-    /** @var LookRepositoryInterface */
-    protected $lookRepository;
+    protected LookRepositoryInterface $lookRepository;
 
-    /** @var FactoryInterface */
-    protected $lookFactory;
+    protected FactoryInterface $lookFactory;
 
-    /** @var LookPartFactoryInterface */
-    protected $lookPartFactory;
+    protected LookPartFactoryInterface $lookPartFactory;
 
-    /** @var FactoryInterface */
-    protected $lookImageFactory;
+    protected FactoryInterface $lookImageFactory;
 
-    /** @var ProductRepositoryInterface */
-    protected $productRepository;
+    protected ProductRepositoryInterface $productRepository;
 
-    /** @var RepositoryInterface */
-    protected $localeRepository;
+    protected RepositoryInterface $localeRepository;
 
-    /** @var ImageUploaderInterface */
-    protected $imageUploader;
+    protected ImageUploaderInterface $imageUploader;
 
-    /** @var FileLocatorInterface */
-    protected $fileLocator;
+    protected FileLocatorInterface $fileLocator;
 
-    /** @var \Faker\Generator */
-    protected $faker;
+    protected Generator $faker;
 
-    /** @var OptionsResolver */
-    protected $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
-    /** @var OptionsResolver */
-    protected $partOptionsResolver;
+    protected OptionsResolver $partOptionsResolver;
 
     public function __construct(
         LookRepositoryInterface $lookRepository,
@@ -78,7 +69,7 @@ class LookExampleFactory extends AbstractExampleFactory implements ExampleFactor
         $this->imageUploader = $imageUploader;
         $this->fileLocator = $fileLocator;
 
-        $this->faker = \Faker\Factory::create();
+        $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
         $this->partOptionsResolver = new OptionsResolver();
 
@@ -135,7 +126,7 @@ class LookExampleFactory extends AbstractExampleFactory implements ExampleFactor
 
         $look->setName($options['name']);
         $look->setDescription($options['description']);
-        $look->setSlug(null !== $options['slug'] ? $options['slug'] : StringInflector::nameToCode($options['name']));
+        $look->setSlug($options['slug'] ?? StringInflector::nameToCode($options['name']));
     }
 
     protected function createImage(LookInterface $look, array $imageOptions): void

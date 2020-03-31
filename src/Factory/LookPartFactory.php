@@ -10,8 +10,7 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 final class LookPartFactory implements LookPartFactoryInterface
 {
-    /** @var FactoryInterface */
-    private $decoratedFactory;
+    private FactoryInterface $decoratedFactory;
 
     public function __construct(FactoryInterface $decoratedFactory)
     {
@@ -28,7 +27,6 @@ final class LookPartFactory implements LookPartFactoryInterface
 
     public function createForLook(LookInterface $look): LookPartInterface
     {
-        /** @var LookPartInterface $lookPart */
         $lookPart = $this->createNew();
         $lookPart->setLook($look);
 
