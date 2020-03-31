@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <service id="setono_sylius_shop_the_look.fixture.example_factory.look"
+                 class="Setono\SyliusShopTheLookPlugin\Fixture\Factory\LookExampleFactory">
+            <argument type="service" id="setono_sylius_shop_the_look.repository.look"/>
+            <argument type="service" id="setono_sylius_shop_the_look.factory.look"/>
+            <argument type="service" id="setono_sylius_shop_the_look.factory.look_part"/>
+            <argument type="service" id="setono_sylius_shop_the_look.factory.look_image"/>
+            <argument type="service" id="sylius.repository.product"/>
+            <argument type="service" id="sylius.repository.locale"/>
+            <argument type="service" id="sylius.image_uploader"/>
+            <argument type="service" id="file_locator" />
+        </service>
+
+        <service id="setono_sylius_shop_the_look.fixture.look"
+                 class="Setono\SyliusShopTheLookPlugin\Fixture\LookFixture">
+            <argument type="service" id="setono_sylius_shop_the_look.manager.look" />
+            <argument type="service" id="setono_sylius_shop_the_look.fixture.example_factory.look" />
+
+            <tag name="sylius_fixtures.fixture"/>
+        </service>
+
+    </services>
+</container>

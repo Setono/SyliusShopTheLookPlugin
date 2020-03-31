@@ -12,7 +12,7 @@ interface LookTranslationInterface extends ResourceInterface, SlugAwareInterface
 {
     public function getName(): ?string;
 
-    public function setName(string $name): void;
+    public function setName(?string $name): void;
 
     public function getDescription(): ?string;
 

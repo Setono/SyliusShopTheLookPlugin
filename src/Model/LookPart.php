@@ -10,11 +10,11 @@ use Sylius\Component\Core\Model\ProductInterface;
 
 class LookPart implements LookPartInterface
 {
-    protected int $id;
+    protected ?int $id = null;
 
-    protected string $name;
+    protected ?string $name = null;
 
-    protected LookInterface $look;
+    protected ?LookInterface $look = null;
 
     /**
      * @var Collection|ProductInterface[]
@@ -48,8 +48,53 @@ class LookPart implements LookPartInterface
         return $this->look;
     }
 
+    public function setLook(?LookInterface $look): void
+    {
+        if ($look === $this->look) {
+            return;
+        }
+
+        if (null !== $this->look) {
+            $this->look->removePart($this);
+        }
+
+        $this->look = $look;
+
+        if (null !== $look) {
+            $look->addPart($this);
+        }
+    }
+
     public function getProducts(): Collection
     {
         return $this->products;
+    }
+
+    public function hasProducts(): bool
+    {
+        return !$this->products->isEmpty();
+    }
+
+    public function hasProduct(ProductInterface $product): bool
+    {
+        return $this->products->contains($product);
+    }
+
+    public function addProduct(ProductInterface $product): void
+    {
+        if ($this->hasProduct($product)) {
+            return;
+        }
+
+        $this->products->add($product);
+    }
+
+    public function removeProduct(ProductInterface $product): void
+    {
+        if (!$this->hasProduct($product)) {
+            return;
+        }
+
+        $this->products->removeElement($product);
     }
 }

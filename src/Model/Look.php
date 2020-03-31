@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
+use Webmozart\Assert\Assert;
 
 class Look implements LookInterface
 {
@@ -18,7 +19,9 @@ class Look implements LookInterface
         getTranslation as private doGetTranslation;
     }
 
-    protected int $id;
+    protected ?int $id = null;
+
+    protected ?string $code = null;
 
     /**
      * @var Collection|LookPartInterface[]
@@ -46,12 +49,22 @@ class Look implements LookInterface
         return $this->id;
     }
 
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): void
+    {
+        $this->code = $code;
+    }
+
     public function getName(): ?string
     {
         return $this->getTranslation()->getName();
     }
 
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->getTranslation()->setName($name);
     }
@@ -93,14 +106,22 @@ class Look implements LookInterface
 
     public function addPart(LookPartInterface $part): void
     {
+        if ($this->hasPart($part)) {
+            return;
+        }
+
         $this->parts->add($part);
+        $part->setLook($this);
     }
 
     public function removePart(LookPartInterface $part): void
     {
-        if ($this->hasPart($part)) {
-            $this->parts->removeElement($part);
+        if (!$this->hasPart($part)) {
+            return;
         }
+
+        $this->parts->removeElement($part);
+        $part->setLook(null);
     }
 
     public function getImages(): Collection
@@ -122,21 +143,31 @@ class Look implements LookInterface
 
     public function hasImage(ImageInterface $image): bool
     {
+        Assert::isInstanceOf($image, LookImageInterface::class);
+
         return $this->images->contains($image);
     }
 
     public function addImage(ImageInterface $image): void
     {
-        $image->setOwner($this);
+        Assert::isInstanceOf($image, LookImageInterface::class);
+        if ($this->hasImage($image)) {
+            return;
+        }
+
+        $image->setLook($this);
         $this->images->add($image);
     }
 
     public function removeImage(ImageInterface $image): void
     {
-        if ($this->hasImage($image)) {
-            $image->setOwner(null);
-            $this->images->removeElement($image);
+        Assert::isInstanceOf($image, LookImageInterface::class);
+        if (!$this->hasImage($image)) {
+            return;
         }
+
+        $image->setLook(null);
+        $this->images->removeElement($image);
     }
 
     public function getTranslation(?string $locale = null): LookTranslationInterface

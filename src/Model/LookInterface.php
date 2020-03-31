@@ -6,16 +6,17 @@ namespace Setono\SyliusShopTheLookPlugin\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImagesAwareInterface;
+use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface LookInterface extends ResourceInterface, TimestampableInterface, SlugAwareInterface, ImagesAwareInterface, TranslatableInterface
+interface LookInterface extends ResourceInterface, TimestampableInterface, CodeAwareInterface, SlugAwareInterface, ImagesAwareInterface, TranslatableInterface
 {
     public function getName(): ?string;
 
-    public function setName(string $name): void;
+    public function setName(?string $name): void;
 
     public function getDescription(): ?string;
 

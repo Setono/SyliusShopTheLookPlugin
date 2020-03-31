@@ -9,13 +9,13 @@ use Webmozart\Assert\Assert;
 
 class LookTranslation extends AbstractTranslation implements LookTranslationInterface
 {
-    protected int $id;
+    protected ?int $id = null;
 
-    protected string $name;
+    protected ?string $name = null;
 
-    protected ?string $description;
+    protected ?string $description = null;
 
-    protected string $slug;
+    protected ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -27,7 +27,7 @@ class LookTranslation extends AbstractTranslation implements LookTranslationInte
         return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
