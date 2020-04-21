@@ -3,9 +3,15 @@ imports:
 
 sylius_ui:
     events:
+        # Admin
         setono_sylius_shop_the_look.admin.look.create.javascripts:
             blocks:
                 javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"
         setono_sylius_shop_the_look.admin.look.update.javascripts:
             blocks:
                 javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"
+
+        # Shop
+        setono_sylius_shop_the_look.shop.look.index.box:
+            blocks:
+                content: "@SetonoSyliusShopTheLookPlugin/shop/look/box/_content.html.twig"

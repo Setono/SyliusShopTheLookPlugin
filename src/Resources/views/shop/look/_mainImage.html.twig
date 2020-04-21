@@ -1,0 +1,9 @@
+{% if look.imagesByType(type|default('main')) is not empty %}
+    {% set path = look.imagesByType(type|default('main')).first.path|imagine_filter(filter|default('sylius_medium')) %}
+{% elseif look.images.first %}
+    {% set path = look.images.first.path|imagine_filter(filter|default('sylius_medium')) %}
+{% else %}
+    {% set path = '//placehold.it/240x180' %}
+{% endif %}
+
+<img src="{{ path }}" alt="{{ look.name }}" />

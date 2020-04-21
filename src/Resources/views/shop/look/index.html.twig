@@ -1,0 +1,14 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block title %}Looks - {{ parent() }}{% endblock %}
+{% block content %}
+    {% include '@SetonoSyliusShopTheLookPlugin/shop/look/index/_header.html.twig' %}
+    <div class="ui stackable grid">
+        <div class="four wide column">
+
+        </div>
+        <div class="twelve wide column">
+            {% include '@SetonoSyliusShopTheLookPlugin/shop/look/index/_main.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
