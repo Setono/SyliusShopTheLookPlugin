@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" />
+
+        <service id="setono_sylius_shop_the_look.templating.helper.price"
+                 class="Setono\SyliusShopTheLookPlugin\Templating\Helper\PriceHelper"
+                 lazy="true">
+            <argument type="service" id="setono_sylius_shop_the_look.calculator.look_price" />
+
+            <tag name="templating.helper"
+                 alias="setono_look_calculate_price" />
+        </service>
+
+        <service id="setono_sylius_shop_the_look.twig.extension.price"
+                 class="Setono\SyliusShopTheLookPlugin\Twig\PriceExtension"
+                 public="false">
+            <argument type="service" id="setono_sylius_shop_the_look.templating.helper.price" />
+
+            <tag name="twig.extension" />
+        </service>
+
+    </services>
+</container>
