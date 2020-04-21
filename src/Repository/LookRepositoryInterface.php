@@ -12,5 +12,7 @@ interface LookRepositoryInterface extends RepositoryInterface
 {
     public function createListQueryBuilder(): QueryBuilder;
 
+    public function createShopListQueryBuilder(string $locale): QueryBuilder;
+
     public function findOneBySlug(string $slug): ?LookInterface;
 }
