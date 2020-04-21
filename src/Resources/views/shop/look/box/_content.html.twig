@@ -13,6 +13,9 @@
     </a>
     <div class="content" {{ sylius_test_html_attribute('look-content') }}>
         <a href="{{ path('setono_sylius_shop_the_look_shop_look_show', {'slug': look.slug, '_locale': look.translation.locale}) }}" class="header sylius-look-name" {{ sylius_test_html_attribute('look-name', look.name) }}>{{ look.name }}</a>
-        <div class="sylius-look-price" {{ sylius_test_html_attribute('look-price') }}>{{ money.calculateLookPrice(look) }}</div>
+        <div class="sylius-look-price" {{ sylius_test_html_attribute('look-price') }}>
+            <strike>{{ money.calculateLookTotal(look) }}</strike>
+            {{ money.calculateLookPrice(look) }}
+        </div>
     </div>
 </div>
