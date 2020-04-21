@@ -18,6 +18,10 @@ interface LookInterface extends ResourceInterface, TimestampableInterface, CodeA
 
     public function setName(?string $name): void;
 
+    public function getPercentageDiscount(): float;
+
+    public function setPercentageDiscount(float $percentageDiscount): void;
+
     public function isEnabled(): bool;
 
     public function setEnabled(bool $enabled): void;

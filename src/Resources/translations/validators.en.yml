@@ -12,6 +12,10 @@ setono_sylius_shop_the_look:
             not_blank: Please enter look name.
             min_length: Look name must be at least 1 character long.|Look name must be at least {{ limit }} characters long.
             max_length: Look name must not be longer than 1 character.|Look name must not be longer than {{ limit }} characters.
+        percentage_discount:
+            not_blank: Please enter look name.
+            numeric: Please enter numeric value.
+            range: Please enter value between 0 and 100.
     look_image:
         file:
             max_size: The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.

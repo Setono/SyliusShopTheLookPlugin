@@ -10,6 +10,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class LookType extends AbstractResourceType
@@ -21,6 +22,10 @@ final class LookType extends AbstractResourceType
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => LookTranslationType::class,
                 'label' => 'setono_sylius_shop_the_look.form.look.translations',
+            ])
+            ->add('percentageDiscount', PercentType::class, [
+                'scale' => 3,
+                'label' => 'setono_sylius_shop_the_look.form.look.percentage_discount',
             ])
             ->add('position', IntegerType::class, [
                 'required' => false,

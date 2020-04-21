@@ -4,6 +4,8 @@ setono_sylius_shop_the_look:
             description: Description
             images: Images
             name: Name
+            discount: Discount
+            percentage_discount: Percentage discount
             parts: Parts
             products: Products
             slug: Slug

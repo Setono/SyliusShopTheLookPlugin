@@ -23,6 +23,8 @@ class Look implements LookInterface
 
     protected ?string $code = null;
 
+    protected float $percentageDiscount = 0.0;
+
     protected bool $enabled = true;
 
     protected ?int $position = null;
@@ -61,6 +63,16 @@ class Look implements LookInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
+    }
+
+    public function getPercentageDiscount(): float
+    {
+        return $this->percentageDiscount;
+    }
+
+    public function setPercentageDiscount(float $percentageDiscount): void
+    {
+        $this->percentageDiscount = $percentageDiscount;
     }
 
     public function isEnabled(): bool
