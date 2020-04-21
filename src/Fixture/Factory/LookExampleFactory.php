@@ -93,6 +93,9 @@ class LookExampleFactory extends AbstractExampleFactory
         }
 
         $look->setCode($options['code']);
+        $look->setPercentageDiscount($options['percentage_discount']);
+        $look->setPosition($options['position']);
+        $look->setEnabled($options['enabled']);
 
         // add translation for each defined locales
         foreach ($this->getLocales() as $localeCode) {
@@ -109,7 +112,7 @@ class LookExampleFactory extends AbstractExampleFactory
         }
 
         foreach ($options['parts'] as $partOptions) {
-            $this->partOptionsResolver->resolve($partOptions);
+            $partOptions = $this->partOptionsResolver->resolve($partOptions);
             $this->createPart($look, $partOptions);
         }
 
@@ -154,6 +157,7 @@ class LookExampleFactory extends AbstractExampleFactory
         /** @var LookPartInterface $lookPart */
         $lookPart = $this->lookPartFactory->createForLook($look);
         $lookPart->setName($partOptions['name']);
+        $lookPart->setPosition($partOptions['position']);
 
         // Specific products by code
         if (is_array($partOptions['products'])) {
@@ -195,9 +199,29 @@ class LookExampleFactory extends AbstractExampleFactory
                 return $name;
             })
 
-            ->setDefault('code', function (Options $options): string {
+            ->setDefault('code', static function (Options $options): string {
                 return StringInflector::nameToCode($options['name']);
             })
+
+            ->setDefault('percentage_discount', function (Options $options): float {
+                return $this->faker->randomFloat(3, 0, 100);
+            })
+            ->setNormalizer('percentage_discount', static function (Options $options, $value): float {
+                if ($value >= 0 && $value <= 100) {
+                    $value = $value / 100;
+                }
+
+                Assert::range($value, 0, 1, 'Percentage discount can be set in 0..100 range');
+
+                return $value;
+            })
+            ->setAllowedTypes('percentage_discount', ['int', 'float'])
+
+            ->setDefault('enabled', true)
+            ->setAllowedTypes('enabled', ['bool'])
+
+            ->setDefault('position', 0)
+            ->setAllowedTypes('position', ['int'])
 
             ->setDefault('slug', null)
             ->setDefault('description', null)
@@ -222,6 +246,9 @@ class LookExampleFactory extends AbstractExampleFactory
 
                 return $name;
             })
+
+            ->setDefault('position', 0)
+            ->setAllowedTypes('position', ['int'])
 
             ->setDefault('products', 3)
             ->setAllowedTypes('products', ['int', 'array'])

@@ -9,6 +9,8 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 name: 'Look with 3 random products per part'
+                                percentage_discount: 20
+                                position: 2
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts: ['Hat', 'Jacket', 'Pants']
@@ -19,6 +21,8 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 name: 'Look with random products'
+                                percentage_discount: 10
+                                position: 1
                                 translations:
                                     de_DE:
                                         name: 'Öko look'
@@ -26,10 +30,13 @@ sylius_fixtures:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts: 
                                     -   name: 'Hat'
+                                        position: 3
                                     -   name: 'Jacket'
                                         products: 2
+                                        position: 1
                                     -   name: 'Pants'
                                         products: 1
+                                        position: 2
 
                 setono_look_with_specific_products:
                     name: setono_look
@@ -37,6 +44,7 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 code: 'eco'
+                                position: 20
                                 name: 'Eco cap look'
                                 description: 'Look with eco cap'
                                 slug: 'eco-cap'
@@ -51,3 +59,11 @@ sylius_fixtures:
                                             # Slug of 'Knitted white pompom cap'
                                             # from vendor/sylius/sylius/src/Sylius/Bundle/CoreBundle/Resources/config/app/fixtures/cap.yaml
                                             - 'knitted_white_pompom_cap'
+
+                setono_look_disabled:
+                    name: setono_look
+                    options:
+                        random: 3
+                        prototype:
+                            position: 10
+                            enabled: false
