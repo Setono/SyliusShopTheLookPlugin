@@ -13,9 +13,7 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
 {
     public function createListQueryBuilder(): QueryBuilder
     {
-        return $this->createQueryBuilder('o')
-            ->leftJoin('o.translations', 'translation')
-            ;
+        return $this->createQueryBuilder('o');
     }
 
     public function createShopListQueryBuilder(string $locale): QueryBuilder
@@ -31,7 +29,8 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
 
     public function findOneBySlug(string $slug): ?LookInterface
     {
-        return $this->createListQueryBuilder()
+        return $this->createQueryBuilder('o')
+            ->leftJoin('o.translations', 'translation')
             ->andWhere('translation.slug = :slug')
             ->setParameter('slug', $slug)
             ->getQuery()
