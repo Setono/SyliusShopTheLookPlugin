@@ -7,8 +7,20 @@ sylius_grid:
                     class: "%setono_sylius_shop_the_look.model.look.class%"
                     repository:
                         method: createListQueryBuilder
+            sorting:
+                position: asc
             limits: [25, 50, 100]
             fields:
+                position:
+                    type: twig
+                    label: sylius.ui.position
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/position.html.twig"
+                code:
+                    type: string
+                    label: sylius.ui.code
+                    sortable: ~
                 name:
                     type: string
                     label: setono_sylius_shop_the_look.ui.name
@@ -17,6 +29,21 @@ sylius_grid:
                     label: setono_sylius_shop_the_look.ui.parts
                     options:
                         template: "@SetonoSyliusShopTheLookPlugin/admin/grid/field/parts.html.twig"
+                enabled:
+                    type: twig
+                    label: sylius.ui.enabled
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [code, translation.name]
+                enabled:
+                    type: boolean
+                    label: sylius.ui.enabled
             actions:
                 main:
                     create:
@@ -24,5 +51,8 @@ sylius_grid:
                 item:
                     update:
                         type: update
+                    delete:
+                        type: delete
+                bulk:
                     delete:
                         type: delete
