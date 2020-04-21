@@ -93,7 +93,7 @@ class LookExampleFactory extends AbstractExampleFactory
         }
 
         $look->setCode($options['code']);
-        $look->setPercentageDiscount($options['percentage_discount']);
+        $look->setDiscount($options['discount']);
         $look->setPosition($options['position']);
         $look->setEnabled($options['enabled']);
 
@@ -203,19 +203,19 @@ class LookExampleFactory extends AbstractExampleFactory
                 return StringInflector::nameToCode($options['name']);
             })
 
-            ->setDefault('percentage_discount', function (Options $options): float {
+            ->setDefault('discount', function (Options $options): float {
                 return $this->faker->randomFloat(3, 0, 100);
             })
-            ->setNormalizer('percentage_discount', static function (Options $options, $value): float {
+            ->setNormalizer('discount', static function (Options $options, $value): float {
                 if ($value >= 0 && $value <= 100) {
                     $value = $value / 100;
                 }
 
-                Assert::range($value, 0, 1, 'Percentage discount can be set in 0..100 range');
+                Assert::range($value, 0, 1, 'Discount can be set in 0..100 range');
 
                 return $value;
             })
-            ->setAllowedTypes('percentage_discount', ['int', 'float'])
+            ->setAllowedTypes('discount', ['int', 'float'])
 
             ->setDefault('enabled', true)
             ->setAllowedTypes('enabled', ['bool'])

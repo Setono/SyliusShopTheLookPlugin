@@ -23,9 +23,9 @@ final class LookType extends AbstractResourceType
                 'entry_type' => LookTranslationType::class,
                 'label' => 'setono_sylius_shop_the_look.form.look.translations',
             ])
-            ->add('percentageDiscount', PercentType::class, [
+            ->add('discount', PercentType::class, [
                 'scale' => 3,
-                'label' => 'setono_sylius_shop_the_look.form.look.percentage_discount',
+                'label' => 'setono_sylius_shop_the_look.form.look.discount',
             ])
             ->add('position', IntegerType::class, [
                 'required' => false,

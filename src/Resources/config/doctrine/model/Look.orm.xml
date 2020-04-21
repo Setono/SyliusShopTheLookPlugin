@@ -12,7 +12,7 @@
         </id>
 
         <field name="code" column="code" type="string" unique="true"/>
-        <field name="percentageDiscount" column="percentage_discount" type="decimal" precision="10" scale="5"/>
+        <field name="discount" column="discount" type="decimal" precision="10" scale="5"/>
         <field name="enabled" column="is_enabled" type="boolean">
             <options>
                 <option name="default">1</option>

@@ -23,20 +23,20 @@
             </constraint>
         </property>
 
-        <property name="percentageDiscount">
+        <property name="discount">
             <constraint name="NotBlank">
-                <option name="message">setono_sylius_shop_the_look.look.percentage_discount.not_blank</option>
+                <option name="message">setono_sylius_shop_the_look.look.discount.not_blank</option>
                 <option name="groups">setono_sylius_shop_the_look</option>
             </constraint>
             <constraint name="Type">
                 <option name="type">numeric</option>
-                <option name="message">setono_sylius_shop_the_look.look.percentage_discount.numeric</option>
+                <option name="message">setono_sylius_shop_the_look.look.discount.numeric</option>
                 <option name="groups">setono_sylius_shop_the_look</option>
             </constraint>
             <constraint name="Range">
                 <option name="min">0</option>
                 <option name="max">1</option>
-                <option name="notInRangeMessage">setono_sylius_shop_the_look.look.percentage_discount.range</option>
+                <option name="notInRangeMessage">setono_sylius_shop_the_look.look.discount.range</option>
                 <option name="groups">setono_sylius_shop_the_look</option>
             </constraint>
         </property>

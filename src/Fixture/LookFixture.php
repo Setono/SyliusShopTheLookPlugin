@@ -18,7 +18,7 @@ class LookFixture extends AbstractResourceFixture
     {
         $lookNode = $resourceNode->children();
         $lookNode->scalarNode('code')->cannotBeEmpty();
-        $lookNode->floatNode('percentage_discount');
+        $lookNode->floatNode('discount');
         $lookNode->booleanNode('enabled');
         $lookNode->integerNode('position');
         $lookNode->scalarNode('name')->cannotBeEmpty();

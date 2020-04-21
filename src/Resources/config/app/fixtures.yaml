@@ -9,7 +9,7 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 name: 'Look with 3 random products per part'
-                                percentage_discount: 20
+                                discount: 20
                                 position: 2
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
@@ -21,7 +21,7 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 name: 'Look with random products'
-                                percentage_discount: 10
+                                discount: 10
                                 position: 1
                                 translations:
                                     de_DE:
