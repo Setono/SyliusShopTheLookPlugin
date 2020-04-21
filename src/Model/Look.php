@@ -23,6 +23,10 @@ class Look implements LookInterface
 
     protected ?string $code = null;
 
+    protected ?bool $enabled = true;
+
+    protected ?int $position = null;
+
     /**
      * @var Collection|LookPartInterface[]
      *
@@ -57,6 +61,26 @@ class Look implements LookInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
+    }
+
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(?bool $enabled): void
+    {
+        $this->enabled = $enabled;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): void
+    {
+        $this->position = $position;
     }
 
     public function getName(): ?string

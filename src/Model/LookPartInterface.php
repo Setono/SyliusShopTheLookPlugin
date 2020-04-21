@@ -14,6 +14,10 @@ interface LookPartInterface extends ResourceInterface
 
     public function setName(string $name): void;
 
+    public function getPosition(): ?int;
+
+    public function setPosition(?int $position): void;
+
     public function getLook(): ?LookInterface;
 
     public function setLook(?LookInterface $look): void;

@@ -14,6 +14,8 @@ class LookPart implements LookPartInterface
 
     protected ?string $name = null;
 
+    protected ?int $position = null;
+
     protected ?LookInterface $look = null;
 
     /**
@@ -41,6 +43,16 @@ class LookPart implements LookPartInterface
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): void
+    {
+        $this->position = $position;
     }
 
     public function getLook(): ?LookInterface
