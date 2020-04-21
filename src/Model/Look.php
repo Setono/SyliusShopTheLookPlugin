@@ -23,7 +23,7 @@ class Look implements LookInterface
 
     protected ?string $code = null;
 
-    protected ?bool $enabled = true;
+    protected bool $enabled = true;
 
     protected ?int $position = null;
 
@@ -63,12 +63,12 @@ class Look implements LookInterface
         $this->code = $code;
     }
 
-    public function isEnabled(): ?bool
+    public function isEnabled(): bool
     {
         return $this->enabled;
     }
 
-    public function setEnabled(?bool $enabled): void
+    public function setEnabled(bool $enabled): void
     {
         $this->enabled = $enabled;
     }

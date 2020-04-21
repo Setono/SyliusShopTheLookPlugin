@@ -18,9 +18,9 @@ interface LookInterface extends ResourceInterface, TimestampableInterface, CodeA
 
     public function setName(?string $name): void;
 
-    public function isEnabled(): ?bool;
+    public function isEnabled(): bool;
 
-    public function setEnabled(?bool $enabled): void;
+    public function setEnabled(bool $enabled): void;
 
     public function getPosition(): ?int;
 
