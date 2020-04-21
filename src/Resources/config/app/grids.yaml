@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/grids/setono_sylius_shop_the_look_admin_look.yaml" }
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/grids/setono_sylius_shop_the_look_shop_look.yaml" }
