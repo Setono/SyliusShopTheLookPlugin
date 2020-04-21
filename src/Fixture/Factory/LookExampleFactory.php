@@ -124,7 +124,7 @@ class LookExampleFactory extends AbstractExampleFactory
         $look->setFallbackLocale($localeCode);
 
         $look->setName($options['name']);
-        $look->setDescription($options['description']);
+        $look->setDescription($options['description'] ?? $this->faker->paragraph);
         $look->setSlug($options['slug'] ?? StringInflector::nameToCode($options['name']));
     }
 
@@ -200,10 +200,7 @@ class LookExampleFactory extends AbstractExampleFactory
             })
 
             ->setDefault('slug', null)
-
-            ->setDefault('description', function (Options $options): string {
-                return $this->faker->paragraph;
-            })
+            ->setDefault('description', null)
 
             ->setDefault('translations', [])
             ->setAllowedTypes('translations', ['array'])
