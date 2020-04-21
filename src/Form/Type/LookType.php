@@ -7,7 +7,9 @@ namespace Setono\SyliusShopTheLookPlugin\Form\Type;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class LookType extends AbstractResourceType
@@ -19,6 +21,10 @@ final class LookType extends AbstractResourceType
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => LookTranslationType::class,
                 'label' => 'setono_sylius_shop_the_look.form.look.translations',
+            ])
+            ->add('position', IntegerType::class, [
+                'required' => false,
+                'label' => 'setono_sylius_shop_the_look.form.look.position',
             ])
             ->add('images', CollectionType::class, [
                 'entry_type' => LookImageType::class,
@@ -34,6 +40,9 @@ final class LookType extends AbstractResourceType
                 'by_reference' => false,
                 'prototype' => true,
                 'label' => 'setono_sylius_shop_the_look.form.look.parts',
+            ])
+            ->add('enabled', CheckboxType::class, [
+                'label' => 'setono_sylius_shop_the_look.form.look.enabled',
             ])
         ;
     }

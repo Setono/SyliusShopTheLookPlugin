@@ -6,6 +6,7 @@ namespace Setono\SyliusShopTheLookPlugin\Form\Type;
 
 use Sylius\Bundle\ProductBundle\Form\Type\ProductAutocompleteChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -16,6 +17,10 @@ final class LookPartType extends AbstractResourceType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'setono_sylius_shop_the_look.form.look_part.name',
+            ])
+            ->add('position', IntegerType::class, [
+                'required' => false,
+                'label' => 'setono_sylius_shop_the_look.form.look_part.position',
             ])
             ->add('products', ProductAutocompleteChoiceType::class, [
                 'label' => 'setono_sylius_shop_the_look.form.look_part.products',

@@ -8,9 +8,12 @@ setono_sylius_shop_the_look:
             products: Products
             slug: Slug
             translations: Translations
+            enabled: Enabled
+            position: Position
         look_part:
             name: Name
             products: Products
+            position: Position
     ui:
         looks: Looks
         manage_looks: Manage looks
