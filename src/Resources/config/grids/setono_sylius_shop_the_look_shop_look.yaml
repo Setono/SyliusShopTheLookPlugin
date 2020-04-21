@@ -7,6 +7,8 @@ sylius_grid:
                     class: "%setono_sylius_shop_the_look.model.look.class%"
                     repository:
                         method: createShopListQueryBuilder
+                        arguments:
+                            - "%locale%"
             sorting:
                 position: asc
             limits: [9, 18, 27]
