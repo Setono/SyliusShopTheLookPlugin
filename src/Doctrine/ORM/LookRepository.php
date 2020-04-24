@@ -27,11 +27,12 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
         ;
     }
 
-    public function findOneBySlug(string $slug): ?LookInterface
+    public function findOneBySlug(string $locale, string $slug): ?LookInterface
     {
         return $this->createQueryBuilder('o')
-            ->leftJoin('o.translations', 'translation')
+            ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
             ->andWhere('translation.slug = :slug')
+            ->setParameter('locale', $locale)
             ->setParameter('slug', $slug)
             ->getQuery()
             ->getOneOrNullResult()
