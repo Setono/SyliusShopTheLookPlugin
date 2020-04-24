@@ -1,0 +1,17 @@
+{%- macro calculateLookPrice(look) -%}
+    {% from "@SyliusShop/Common/Macro/money.html.twig" import convertAndFormat %}
+
+    {{- convertAndFormat(look|setono_look_calculate_price({'channel': sylius.channel})) }}
+{%- endmacro -%}
+
+{%- macro calculateLookDiscount(look) -%}
+    {% from "@SyliusShop/Common/Macro/money.html.twig" import convertAndFormat %}
+
+    {{- convertAndFormat(look|setono_look_calculate_discount({'channel': sylius.channel})) }}
+{%- endmacro -%}
+
+{%- macro calculateLookTotal(look) -%}
+    {% from "@SyliusShop/Common/Macro/money.html.twig" import convertAndFormat %}
+
+    {{- convertAndFormat(look|setono_look_calculate_total({'channel': sylius.channel})) }}
+{%- endmacro -%}
