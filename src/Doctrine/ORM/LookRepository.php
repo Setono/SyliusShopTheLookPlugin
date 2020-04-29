@@ -8,6 +8,7 @@ use Doctrine\ORM\QueryBuilder;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Setono\SyliusShopTheLookPlugin\Repository\LookRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+use Sylius\Component\Core\Model\ProductInterface;
 
 class LookRepository extends EntityRepository implements LookRepositoryInterface
 {
@@ -36,6 +37,22 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
             ->addOrderBy('o.createdAt', 'DESC')
             ->setParameter('locale', $locale)
             ->setMaxResults($count)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findRelatedToProduct(ProductInterface $product, string $locale): array
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
+            ->innerJoin('o.parts', 'part')
+            ->andWhere('o.enabled = true')
+            ->andWhere(':product MEMBER OF part.products')
+            ->addOrderBy('o.position', 'ASC')
+            ->setParameter('locale', $locale)
+            ->setParameter('product', $product)
             ->getQuery()
             ->getResult()
             ;

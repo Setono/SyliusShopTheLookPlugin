@@ -1,0 +1,9 @@
+{# @var \Sylius\Component\Core\Model\ProductInterface product #}
+{# @todo Check if product have no looks at all #}
+
+<h4 class="ui horizontal section divider header">Shop the look</h4>
+
+{{ render(url('setono_sylius_shop_the_look_shop_partial_look_index_related', {
+    'productId': product.id,
+    'template': '@SetonoSyliusShopTheLookPlugin/shop/look/_horizontalList.html.twig'
+})) }}

@@ -20,3 +20,9 @@ sylius_ui:
                 latest_looks_carousel:
                     template: "homepage/_latestLooksCarousel.html.twig"
                     priority: 35
+
+        sylius.shop.product.show.content:
+            blocks:
+                related_looks_carousel:
+                    template: "homepage/_relatedLooksList.html.twig"
+                    priority: 15
