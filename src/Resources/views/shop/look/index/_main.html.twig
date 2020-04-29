@@ -5,6 +5,7 @@
 
 {% if resources.data|length > 0 %}
     <div class="ui three cards" id="looks" {{ sylius_test_html_attribute('looks') }}>
+        {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
         {% for look in resources.data %}
             {% include '@SetonoSyliusShopTheLookPlugin/shop/look/_box.html.twig' %}
         {% endfor %}

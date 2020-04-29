@@ -1,5 +1,7 @@
 {% import "@SetonoSyliusShopTheLookPlugin/common/macro/money.html.twig" as money %}
 
+{# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+
 <div class="ui fluid card" {{ sylius_test_html_attribute('look') }}>
     <a href="{{ path('setono_sylius_shop_the_look_shop_look_show', {'slug': look.slug, '_locale': look.translation.locale}) }}" class="blurring dimmable image">
         <div class="ui dimmer">
