@@ -59,6 +59,13 @@ sylius_fixtures:
                                             # Slug of 'Knitted white pompom cap'
                                             # from vendor/sylius/sylius/src/Sylius/Bundle/CoreBundle/Resources/config/app/fixtures/cap.yaml
                                             - 'knitted_white_pompom_cap'
+                                            # Slug of 'Knitted burgundy winter cap'
+                                            - 'knitted_burgundy_winter_cap'
+                                    -   name: 'Jeans'
+                                        products:
+                                            # Slug of '000F office grey jeans'
+                                            # from vendor/sylius/sylius/src/Sylius/Bundle/CoreBundle/Resources/config/app/fixtures/jeans.yaml
+                                            - '000F_office_grey_jeans'
 
                 setono_look_disabled:
                     name: setono_look
