@@ -1,0 +1,34 @@
+{# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+{% if look.imagesByType('main') is not empty %}
+    {% set source_path = look.imagesByType('main').first.path %}
+    {% set original_path = source_path|imagine_filter('sylius_large') %}
+    {% set path = source_path|imagine_filter(filter|default('sylius_large')) %}
+{% elseif look.images.first %}
+    {% set source_path = look.images.first.path %}
+    {% set original_path = source_path|imagine_filter('sylius_large') %}
+    {% set path = source_path|imagine_filter(filter|default('sylius_large')) %}
+{% else %}
+    {% set original_path = '//placehold.it/640x480' %}
+    {% set path = original_path %}
+{% endif %}
+
+<div data-look-image="{{ path }}" data-look-link="{{ original_path }}"></div>
+<a href="{{ original_path }}" class="ui fluid image" data-lightbox="sylius-look-image">
+    <img src="{{ path }}" id="main-image" alt="{{ look.name }}" {{ sylius_test_html_attribute('main-image') }} />
+</a>
+{% if look.images|length > 1 %}
+    <div class="ui divider"></div>
+
+    {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.before_thumbnails', {'look': look}) }}
+
+    <div class="ui small images">
+        {% for image in look.images %}
+            {% set path = image.path is not null ? image.path|imagine_filter('sylius_small') : '//placehold.it/200x200' %}
+            <div class="ui image">
+                <a href="{{ image.path|imagine_filter('sylius_large') }}" data-lightbox="sylius-look-image">
+                    <img src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_large') }}" alt="{{ look.name }}" />
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

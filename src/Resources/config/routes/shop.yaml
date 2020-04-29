@@ -1,8 +1,3 @@
-setono_sylius_shop_the_look_shop_look_index:
-    path: /look
-    methods: [GET]
-    defaults:
-        _controller: setono_sylius_shop_the_look.controller.look:indexAction
-        _sylius:
-            template: "@SetonoSyliusShopTheLookPlugin/shop/look/index.html.twig"
-            grid: setono_sylius_shop_the_look_shop_look
+setono_sylius_shop_the_look_shop_look:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes/shop/look.yaml"
+    prefix: /look

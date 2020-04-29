@@ -20,6 +20,8 @@ interface LookInterface extends ResourceInterface, TimestampableInterface, CodeA
 
     public function getDiscount(): float;
 
+    public function getDisplayableDiscount(): float;
+
     public function setDiscount(float $discount): void;
 
     public function isEnabled(): bool;

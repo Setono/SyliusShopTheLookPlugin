@@ -70,6 +70,11 @@ class Look implements LookInterface
         return $this->discount;
     }
 
+    public function getDisplayableDiscount(): float
+    {
+        return $this->getDiscount() * 100;
+    }
+
     public function setDiscount(float $discount): void
     {
         $this->discount = $discount;
