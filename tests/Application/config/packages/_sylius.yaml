@@ -12,3 +12,11 @@ parameters:
 sylius_shop:
     product_grid:
         include_all_descendants: true
+
+sylius_ui:
+    events:
+        sylius.shop.homepage:
+            blocks:
+                latest_looks_carousel:
+                    template: "homepage/_latestLooksCarousel.html.twig"
+                    priority: 35

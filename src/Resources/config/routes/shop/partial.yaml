@@ -1,0 +1,12 @@
+setono_sylius_shop_the_look_shop_partial_look_index_latest:
+    path: /latest/{count}
+    methods: [GET]
+    defaults:
+        _controller: setono_sylius_shop_the_look.controller.look:indexAction
+        _sylius:
+            template: $template
+            repository:
+                method: findLatest
+                arguments:
+                    - "expr:service('sylius.context.locale').getLocaleCode()"
+                    - '!!int $count'

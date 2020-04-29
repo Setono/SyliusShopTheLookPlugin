@@ -27,6 +27,20 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
         ;
     }
 
+    public function findLatest(string $locale, int $count): array
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
+            ->andWhere('o.enabled = true')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setParameter('locale', $locale)
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function findOneBySlug(string $locale, string $slug): ?LookInterface
     {
         return $this->createQueryBuilder('o')
