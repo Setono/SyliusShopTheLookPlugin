@@ -1,0 +1,8 @@
+sylius_ui:
+    events:
+        setono_sylius_shop_the_look.admin.look.create.javascripts:
+            blocks:
+                javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"
+        setono_sylius_shop_the_look.admin.look.update.javascripts:
+            blocks:
+                javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"

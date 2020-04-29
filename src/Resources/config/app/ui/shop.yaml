@@ -1,0 +1,36 @@
+sylius_ui:
+    events:
+        setono_sylius_shop_the_look.shop.look.index.box:
+            blocks:
+                content:
+                    template: "@SetonoSyliusShopTheLookPlugin/shop/look/box/_content.html.twig"
+                    priority: 10
+
+        setono_sylius_shop_the_look.shop.look.show.left_sidebar:
+            blocks:
+                images:
+                    template: "@SetonoSyliusShopTheLookPlugin/shop/look/show/_images.html.twig"
+
+        setono_sylius_shop_the_look.shop.look.show.right_sidebar:
+            blocks:
+                header:
+                    template: "@SetonoSyliusShopTheLookPlugin/shop/look/show/_header.html.twig"
+                price_and_discount:
+                    template: "@SetonoSyliusShopTheLookPlugin/shop/look/show/_priceAndDiscount.html.twig"
+                parts:
+                    template: "@SetonoSyliusShopTheLookPlugin/shop/look/show/_parts.html.twig"
+
+        setono_sylius_shop_the_look.shop.look.show.product:
+            blocks:
+                images:
+                    template: "@SyliusShop/Product/Show/_images.html.twig"
+                    priority: 40
+                price_widget:
+                    template: "@SyliusShop/Product/Show/_priceWidget.html.twig"
+                    priority: 30
+                short_description:
+                    template: "@SyliusShop/Product/Show/_shortDescription.html.twig"
+                    priority: 20
+                variant_selection:
+                    template: "@SyliusShop/Product/Show/_variantSelection.html.twig"
+                    priority: 10
