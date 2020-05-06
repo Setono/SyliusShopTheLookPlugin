@@ -61,6 +61,11 @@ $ bin/console doctrine:migrations:diff
 $ bin/console doctrine:migrations:migrate
 ```
 
+### Override templates
+
+Inject look discount lines from [src/Resources/views/templates/bundles](src/Resources/views/templates/bundles) templates
+to cart/checkout/order templates like it was done at [tests/Application/templates/bundles](tests/Application/templates/bundles).
+
 [ico-version]: https://img.shields.io/packagist/v/setono/sylius-shop-the-look-plugin.svg
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [ico-github-actions]: https://github.com/Setono/SyliusShopTheLookPlugin/workflows/build/badge.svg
