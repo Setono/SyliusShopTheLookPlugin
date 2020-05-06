@@ -37,7 +37,6 @@ final class LookPriceCalculator implements LookPriceCalculatorInterface
         $price = 0;
         foreach ($look->getParts() as $lookPart) {
             foreach ($lookPart->getProducts() as $product) {
-
                 /** @var ProductVariantInterface|null $productVariant */
                 $productVariant = $this->productVariantResolver->getVariant($product);
                 Assert::notNull($productVariant);
