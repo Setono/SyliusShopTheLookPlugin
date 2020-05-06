@@ -23,3 +23,5 @@ setono_sylius_shop_the_look:
         name: Name
         parts: Parts
         no_parts: No parts
+        look_adjustment_total: Looks total discount
+        look_discounts: Look discounts

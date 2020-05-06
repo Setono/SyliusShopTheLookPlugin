@@ -1,0 +1,12 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{# @var \Sylius\Component\Core\Model\OrderInterface cart #}
+{% set lookAdjustment = constant('Setono\\SyliusShopTheLookPlugin\\Model\\AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT') %}
+{% set lookAdjustmentsTotal = cart.getAdjustmentsTotalRecursively(lookAdjustment) %}
+
+{% if lookAdjustmentsTotal != 0 %}
+    <tr>
+        <td>{{ 'setono_sylius_shop_the_look.ui.look_adjustment_total'|trans }}:</td>
+        <td id="setono-cart-gift-card-total" class="right aligned">{{ money.convertAndFormat(lookAdjustmentsTotal) }}</td>
+    </tr>
+{% endif %}

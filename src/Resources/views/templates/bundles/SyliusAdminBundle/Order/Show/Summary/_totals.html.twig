@@ -1,0 +1,33 @@
+{% import "@SyliusAdmin/Common/Macro/money.html.twig" as money %}
+
+{# @todo Add column with item adjustments? As core Sylius doesn't show that kind of adjustments #}
+
+{% set lookAdjustment = constant('Setono\\SyliusShopTheLookPlugin\\Model\\AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT') %}
+{% set lookAdjustmentsTotal = order.getAdjustmentsTotalRecursively(lookAdjustment) %}
+
+{% if lookAdjustmentsTotal != 0 %}
+    {% set lookAdjustments = sylius_aggregate_adjustments(order.getAdjustmentsRecursively(lookAdjustment)) %}
+    <tr>
+        <td colspan="5">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <strong>{{ 'setono_sylius_shop_the_look.ui.look_discounts'|trans }}:</strong>
+                </div>
+                {% for label, amount in lookAdjustments %}
+                    <div class="item">
+                        <div class="right floated">{{ money.format(amount, order.currencyCode) }}</div>
+                        <div class="content">
+                            <div class="description">
+                                {{ label }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </td>
+        <td colspan="4" class="right aligned">
+            <strong>{{ 'setono_sylius_shop_the_look.ui.look_adjustment_total'|trans }}</strong>:
+            {{ money.format(lookAdjustmentsTotal, order.currencyCode) }}
+        </td>
+    </tr>
+{% endif %}
