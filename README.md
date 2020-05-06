@@ -38,6 +38,9 @@ imports:
 # config/routes/setono_sylius_shop_the_look.yaml
 setono_sylius_shop_the_look:
     resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes.yaml"
+    # Or if your app doesn't use localized URLs:
+    # resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes_no_locale.yaml"
+    # @see https://docs.sylius.com/en/latest/cookbook/shop/disabling-localised-urls.html
 ```
 
 ### Add plugin class to your `bundles.php`
