@@ -28,6 +28,16 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
         ;
     }
 
+    public function findEnabled(): array
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.enabled = true')
+            ->addOrderBy('o.position', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     public function findLatest(string $locale, int $count): array
     {
         return $this->createQueryBuilder('o')

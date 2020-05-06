@@ -15,6 +15,8 @@ interface LookRepositoryInterface extends RepositoryInterface
 
     public function createShopListQueryBuilder(string $locale): QueryBuilder;
 
+    public function findEnabled(): array;
+
     public function findLatest(string $locale, int $count): array;
 
     public function findRelatedToProduct(ProductInterface $product, string $locale): array;

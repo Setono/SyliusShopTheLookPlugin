@@ -6,6 +6,7 @@ namespace Setono\SyliusShopTheLookPlugin\Model;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImagesAwareInterface;
+use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
@@ -50,4 +51,11 @@ interface LookInterface extends ResourceInterface, TimestampableInterface, CodeA
     public function addPart(LookPartInterface $part): void;
 
     public function removePart(LookPartInterface $part): void;
+
+    /**
+     * @return Collection|ProductInterface[]
+     *
+     * @psalm-return Collection<array-key, ProductInterface>
+     */
+    public function getProducts(): Collection;
 }

@@ -165,6 +165,19 @@ class Look implements LookInterface
         $part->setLook(null);
     }
 
+    public function getProducts(): Collection
+    {
+        // @todo Refactor?
+        $products = new ArrayCollection();
+        foreach ($this->parts as $part) {
+            foreach ($part->getProducts() as $product) {
+                $products->add($product);
+            }
+        }
+
+        return $products;
+    }
+
     public function getImages(): Collection
     {
         return $this->images;
