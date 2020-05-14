@@ -1,0 +1,27 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    {% include '@SetonoSyliusShopTheLookPlugin/shop/look/show/_breadcrumb.html.twig' %}
+    <div class="ui hidden divider"></div>
+
+    <div class="ui two column stackable grid">
+        <div class="column">
+            {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.left_sidebar', _context) }}
+        </div>
+        <div class="column">
+            {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.right_sidebar', _context) }}
+        </div>
+    </div>
+
+    {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.content', _context) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        lightbox.option({
+            'albumLabel': '{{ 'sylius.lightbox.image_album_label'|trans|escape('js') }}'
+        });
+    </script>
+{% endblock %}

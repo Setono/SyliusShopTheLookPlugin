@@ -18,6 +18,9 @@ class LookFixture extends AbstractResourceFixture
     {
         $lookNode = $resourceNode->children();
         $lookNode->scalarNode('code')->cannotBeEmpty();
+        $lookNode->floatNode('discount');
+        $lookNode->booleanNode('enabled');
+        $lookNode->integerNode('position');
         $lookNode->scalarNode('name')->cannotBeEmpty();
         $lookNode->scalarNode('slug')->cannotBeEmpty();
         $lookNode->scalarNode('description')->cannotBeEmpty();
@@ -33,6 +36,7 @@ class LookFixture extends AbstractResourceFixture
         ;
         $partsNodePrototypeChildren = $partsNodePrototype->children();
         $partsNodePrototypeChildren->scalarNode('name')->cannotBeEmpty();
+        $partsNodePrototypeChildren->integerNode('position');
         $partsNodePrototypeChildren->variableNode('products')->cannotBeEmpty()->defaultValue(3);
     }
 }

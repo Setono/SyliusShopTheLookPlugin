@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <service id="setono_sylius_shop_the_look.order_processor.look_discount"
+                 class="Setono\SyliusShopTheLookPlugin\OrderProcessor\LookDiscountOrderProcessor">
+            <argument type="service" id="setono_sylius_shop_the_look.look_matcher.default"/>
+            <argument type="service" id="setono_sylius_shop_the_look.repository.look"/>
+            <argument type="service" id="sylius.factory.adjustment"/>
+
+            <tag name="sylius.order_processor" priority="40"/>
+        </service>
+
+    </services>
+</container>

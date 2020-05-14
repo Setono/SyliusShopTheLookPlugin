@@ -1,0 +1,18 @@
+sylius_grid:
+    grids:
+        setono_sylius_shop_the_look_shop_look:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%setono_sylius_shop_the_look.model.look.class%"
+                    repository:
+                        method: createShopListQueryBuilder
+                        arguments:
+                            - "%locale%"
+            sorting:
+                position: asc
+            limits: [9, 18, 27]
+            fields:
+                position:
+                    type: string 
+                    sortable: ~

@@ -1,0 +1,21 @@
+setono_sylius_shop_the_look_shop_look_index:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: setono_sylius_shop_the_look.controller.look:indexAction
+        _sylius:
+            template: "@SetonoSyliusShopTheLookPlugin/shop/look/index.html.twig"
+            grid: setono_sylius_shop_the_look_shop_look
+
+setono_sylius_shop_the_look_shop_look_show:
+    path: /{slug}
+    methods: [GET]
+    defaults:
+        _controller: setono_sylius_shop_the_look.controller.look:showAction
+        _sylius:
+            template: "@SetonoSyliusShopTheLookPlugin/shop/look/show.html.twig"
+            repository:
+                method: findOneBySlug
+                arguments:
+                    - "expr:service('sylius.context.locale').getLocaleCode()"
+                    - $slug

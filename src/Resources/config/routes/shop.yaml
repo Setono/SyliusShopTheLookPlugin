@@ -1,0 +1,7 @@
+setono_sylius_shop_the_look_shop_partial_look:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes/shop/partial.yaml"
+    prefix: /_partial/look
+
+setono_sylius_shop_the_look_shop_look:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes/shop/look.yaml"
+    prefix: /look

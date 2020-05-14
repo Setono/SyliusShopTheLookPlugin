@@ -1,11 +1,3 @@
 imports:
-    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/grids/setono_sylius_shop_the_look_admin_look.yaml" }
-
-sylius_ui:
-    events:
-        setono_sylius_shop_the_look.admin.look.create.javascripts:
-            blocks:
-                javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"
-        setono_sylius_shop_the_look.admin.look.update.javascripts:
-            blocks:
-                javascript: "@SetonoSyliusShopTheLookPlugin/admin/look/javascript.html.twig"
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/app/grids.yaml" }
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/app/ui.yaml" }

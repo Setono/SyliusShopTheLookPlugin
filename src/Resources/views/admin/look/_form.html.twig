@@ -1,11 +1,20 @@
 {% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
 {% form_theme form.images '@SetonoSyliusShopTheLookPlugin/admin/look/imagesTheme.html.twig' %}
 
-{{ form_errors(form) }}
 <div class="ui two column stackable grid">
     <div class="column">
         <div class="ui segment">
-            {{ form_row(form.code) }}
+            {{ form_errors(form) }}
+            <div class="two fields">
+                {{ form_row(form.code) }}
+                {{ form_row(form.position) }}
+            </div>
+            {{ form_row(form.enabled) }}
+        </div>
+        <div class="ui segment">
+            <h3 class="ui dividing header">{{ 'setono_sylius_shop_the_look.form.look.discount'|trans }}</h3>
+            <br>
+            {{ form_row(form.discount) }}
         </div>
         <div class="ui segment">
             <h3 class="ui dividing header">{{ 'setono_sylius_shop_the_look.form.look.parts'|trans }}</h3>

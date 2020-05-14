@@ -1,0 +1,8 @@
+{# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+{% for part in look.parts %}
+    <h2>{{ part.name }}</h2>
+
+    {% for product in part.products %}
+        {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.product', {'product': product, 'look': look}) }}
+    {% endfor %}
+{% endfor %}

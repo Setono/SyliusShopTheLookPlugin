@@ -12,6 +12,20 @@
         </id>
 
         <field name="code" column="code" type="string" unique="true"/>
+        <field name="discount" column="discount" type="decimal" precision="10" scale="5">
+            <options>
+                <option name="default">0</option>
+            </options>
+        </field>
+        <field name="enabled" column="is_enabled" type="boolean">
+            <options>
+                <option name="default">1</option>
+            </options>
+        </field>
+
+        <field name="position" type="integer">
+            <gedmo:sortable-position />
+        </field>
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
@@ -28,6 +42,9 @@
             <cascade>
                 <cascade-all/>
             </cascade>
+            <order-by>
+                <order-by-field name="name" direction="ASC" />
+            </order-by>
         </one-to-many>
 
         <one-to-many field="images"

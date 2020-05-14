@@ -4,13 +4,17 @@ setono_sylius_shop_the_look:
             description: Description
             images: Images
             name: Name
+            discount: Discount
             parts: Parts
             products: Products
             slug: Slug
             translations: Translations
+            enabled: Enabled
+            position: Position
         look_part:
             name: Name
             products: Products
+            position: Position
     ui:
         looks: Looks
         manage_looks: Manage looks
@@ -19,3 +23,5 @@ setono_sylius_shop_the_look:
         name: Name
         parts: Parts
         no_parts: No parts
+        look_adjustment_total: Looks total discount
+        look_discounts: Look discounts

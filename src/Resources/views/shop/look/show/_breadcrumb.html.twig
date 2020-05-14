@@ -1,0 +1,10 @@
+<div class="ui breadcrumb">
+    <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
+    <div class="divider"> / </div>
+
+    <a href="{{ path('setono_sylius_shop_the_look_shop_look_index') }}" class="section">{{ 'setono_sylius_shop_the_look.ui.looks'|trans }}</a>
+    <div class="divider"> / </div>
+
+    {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+    <div class="active section">{{ look.name }}</div>
+</div>

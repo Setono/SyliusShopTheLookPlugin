@@ -23,6 +23,12 @@ class Look implements LookInterface
 
     protected ?string $code = null;
 
+    protected float $discount = 0.0;
+
+    protected bool $enabled = true;
+
+    protected ?int $position = null;
+
     /**
      * @var Collection|LookPartInterface[]
      *
@@ -57,6 +63,41 @@ class Look implements LookInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
+    }
+
+    public function getDiscount(): float
+    {
+        return $this->discount;
+    }
+
+    public function getDisplayableDiscount(): float
+    {
+        return $this->getDiscount() * 100;
+    }
+
+    public function setDiscount(float $discount): void
+    {
+        $this->discount = $discount;
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): void
+    {
+        $this->enabled = $enabled;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): void
+    {
+        $this->position = $position;
     }
 
     public function getName(): ?string
@@ -122,6 +163,19 @@ class Look implements LookInterface
 
         $this->parts->removeElement($part);
         $part->setLook(null);
+    }
+
+    public function getProducts(): Collection
+    {
+        // @todo Refactor?
+        $products = new ArrayCollection();
+        foreach ($this->parts as $part) {
+            foreach ($part->getProducts() as $product) {
+                $products->add($product);
+            }
+        }
+
+        return $products;
     }
 
     public function getImages(): Collection
