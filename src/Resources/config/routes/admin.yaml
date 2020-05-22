@@ -1,3 +1,7 @@
+setono_sylius_shop_the_look_admin_ajax_look:
+    resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/routes/admin/ajax.yaml"
+    prefix: /ajax/look
+
 setono_sylius_shop_the_look_admin_look:
     resource: |
         alias: setono_sylius_shop_the_look.look

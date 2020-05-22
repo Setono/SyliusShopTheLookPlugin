@@ -1,0 +1,6 @@
+setono_sylius_shop_the_look_admin_ajax_look_generate_slug:
+    path: /generate-slug
+    methods: [GET]
+    defaults:
+        _controller: setono_sylius_shop_the_look.controller.look_generate_slug_action
+        _format: json

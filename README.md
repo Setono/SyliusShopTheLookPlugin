@@ -81,6 +81,23 @@ import 'setono/shop-the-look-plugin/app';
 
 #### If you're using regular scripts inclusion
 
+This is not supported out of the box (slug generation script),
+but I guess you can do something like this at your app's javascript file:
+
+```js
+(function ($) {
+  'use strict';
+
+  $.fn.extend({
+    // Put setono-shop-the-look-slug.js's content here
+  });
+
+  $(document).ready(() => {
+    $(document).lookSlugGenerator();
+  });
+})(jQuery);
+```
+
 ```yaml
 # config/packages/setono_sylius_shop_the_look.yaml
 imports:
