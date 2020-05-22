@@ -7,7 +7,6 @@ namespace Setono\SyliusShopTheLookPlugin\Templating\Helper;
 use Setono\SyliusShopTheLookPlugin\Calculator\LookPriceCalculatorInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Symfony\Component\Templating\Helper\Helper;
-use Webmozart\Assert\Assert;
 
 class PriceHelper extends Helper
 {
@@ -31,8 +30,6 @@ class PriceHelper extends Helper
 
     public function getTotal(LookInterface $look, array $context): int
     {
-        Assert::keyExists($context, 'channel');
-
         return $this->lookPriceCalculator->calculate($look, $context);
     }
 
