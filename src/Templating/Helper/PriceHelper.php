@@ -21,12 +21,12 @@ class PriceHelper extends Helper
 
     public function getPrice(LookInterface $look, array $context): int
     {
-        return (int) ($this->getTotal($look, $context) * (1 - $look->getDiscount()));
+        return (int) round($this->getTotal($look, $context) * (1 - $look->getDiscount()));
     }
 
     public function getDiscount(LookInterface $look, array $context): int
     {
-        return (int) ($this->getTotal($look, $context) * $look->getDiscount());
+        return (int) round($this->getTotal($look, $context) * $look->getDiscount());
     }
 
     public function getTotal(LookInterface $look, array $context): int
