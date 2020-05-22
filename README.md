@@ -57,6 +57,37 @@ $bundles = [
 ];
 ```
 
+### Prepare assets
+
+#### If you're using Webpack encore in your app:
+
+- Specify plugin's scripts alias at `webpack.config.js`:
+
+```js
+// webpack.config.js
+const setonoShopTheLookPluginAdminScripts = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/admin/js/');
+// ...
+adminConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginAdminScripts;
+```
+
+- Use plugin's admin app at `assets/admin/js/app.js`:
+
+```js
+// assets/admin/js/app.js
+import 'setono/shop-the-look-plugin/app';
+```
+
+- And run `yarn encore dev` to rebuild it
+
+#### If you're using regular scripts inclusion
+
+```yaml
+# config/packages/setono_sylius_shop_the_look.yaml
+imports:
+    // ...
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/app/ui/admin.yaml" }
+```
+
 ### Update your database:
 
 ```bash

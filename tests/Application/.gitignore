@@ -6,7 +6,12 @@
 /public/media/image/*
 !/public/media/image/.gitignore
 
+###> symfony/webpack-encore-bundle ###
 /node_modules
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
 
 ###> symfony/framework-bundle ###
 /.env.*.local

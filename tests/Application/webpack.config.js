@@ -1,7 +1,7 @@
 const path = require('path');
 const Encore = require('@symfony/webpack-encore');
 
-const syliusBundles = path.resolve(__dirname, 'vendor/sylius/sylius/src/Sylius/Bundle/');
+const syliusBundles = path.resolve(__dirname, '../../vendor/sylius/sylius/src/Sylius/Bundle/');
 const uiBundleScripts = path.resolve(syliusBundles, 'UiBundle/Resources/private/js/');
 const uiBundleResources = path.resolve(syliusBundles, 'UiBundle/Resources/private/');
 
@@ -9,7 +9,7 @@ const uiBundleResources = path.resolve(syliusBundles, 'UiBundle/Resources/privat
 Encore
   .setOutputPath('public/build/shop/')
   .setPublicPath('/build/shop')
-  .addEntry('shop-entry', './assets/shop/entry.js')
+  .addEntry('shop-entry', '../../src/Resources/private/shop/entry.js')
   .disableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild()
   .enableSourceMaps(!Encore.isProduction())
@@ -29,7 +29,7 @@ Encore.reset();
 Encore
   .setOutputPath('public/build/admin/')
   .setPublicPath('/build/admin')
-  .addEntry('admin-entry', './assets/admin/entry.js')
+  .addEntry('admin-entry', '../../src/Resources/private/admin/entry.js')
   .disableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild()
   .enableSourceMaps(!Encore.isProduction())
