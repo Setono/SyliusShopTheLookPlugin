@@ -57,6 +57,54 @@ $bundles = [
 ];
 ```
 
+### Prepare assets
+
+#### If you're using Webpack encore in your app:
+
+- Specify plugin's scripts alias at `webpack.config.js`:
+
+```js
+// webpack.config.js
+const setonoShopTheLookPluginAdminScripts = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/admin/js/');
+// ...
+adminConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginAdminScripts;
+```
+
+- Use plugin's admin app at `assets/admin/js/app.js`:
+
+```js
+// assets/admin/js/app.js
+import 'setono/shop-the-look-plugin/app';
+```
+
+- And run `yarn encore dev` to rebuild it
+
+#### If you're using regular scripts inclusion
+
+This is not supported out of the box (slug generation script),
+but I guess you can do something like this at your app's javascript file:
+
+```js
+(function ($) {
+  'use strict';
+
+  $.fn.extend({
+    // Put setono-shop-the-look-slug.js's content here
+  });
+
+  $(document).ready(() => {
+    $(document).lookSlugGenerator();
+  });
+})(jQuery);
+```
+
+```yaml
+# config/packages/setono_sylius_shop_the_look.yaml
+imports:
+    // ...
+    - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/app/ui/admin.yaml" }
+```
+
 ### Update your database:
 
 ```bash

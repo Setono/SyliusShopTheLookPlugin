@@ -31,6 +31,7 @@
         "symfony/intl": "^4.4 || ^5.0",
         "symfony/web-profiler-bundle": "^4.4 || ^5.0",
         "symfony/web-server-bundle": "^4.4 || ^5.0",
+        "symfony/webpack-encore-bundle": "^1.7",
         "thecodingmachine/phpstan-safe-rule": "^1.0",
         "vimeo/psalm": "^3.9"
     },

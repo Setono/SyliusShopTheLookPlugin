@@ -1,4 +1,4 @@
-{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationFormWithSlug %}
 {% form_theme form.images '@SetonoSyliusShopTheLookPlugin/admin/look/imagesTheme.html.twig' %}
 
 <div class="ui two column stackable grid">
@@ -24,7 +24,8 @@
     </div>
     <div class="column">
         <div class="ui segment">
-            {{ translationForm(form.translations) }}
+            {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+            {{ translationFormWithSlug(form.translations, '@SetonoSyliusShopTheLookPlugin/admin/look/_slugField.html.twig', look) }}
         </div>
     </div>
 </div>
