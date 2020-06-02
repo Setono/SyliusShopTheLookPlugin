@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Setono\SyliusShopTheLookPlugin\Controller;
+namespace Setono\SyliusShopTheLookPlugin\Controller\Admin;
 
 use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
