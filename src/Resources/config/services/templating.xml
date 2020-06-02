@@ -15,6 +15,9 @@
                  alias="setono_look_calculate_price" />
         </service>
 
+        <service id="Setono\SyliusShopTheLookPlugin\Templating\Helper\PriceHelperInterface"
+                 alias="setono_sylius_shop_the_look.templating.helper.price"/>
+
         <service id="setono_sylius_shop_the_look.twig.extension.price"
                  class="Setono\SyliusShopTheLookPlugin\Twig\PriceExtension"
                  public="false">
