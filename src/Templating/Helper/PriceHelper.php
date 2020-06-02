@@ -8,7 +8,7 @@ use Setono\SyliusShopTheLookPlugin\Calculator\LookPriceCalculatorInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Symfony\Component\Templating\Helper\Helper;
 
-class PriceHelper extends Helper
+class PriceHelper extends Helper implements PriceHelperInterface
 {
     private LookPriceCalculatorInterface $lookPriceCalculator;
 

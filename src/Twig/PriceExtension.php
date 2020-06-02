@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Setono\SyliusShopTheLookPlugin\Twig;
 
-use Setono\SyliusShopTheLookPlugin\Templating\Helper\PriceHelper;
+use Setono\SyliusShopTheLookPlugin\Templating\Helper\PriceHelperInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 final class PriceExtension extends AbstractExtension
 {
-    private PriceHelper $helper;
+    private PriceHelperInterface $helper;
 
-    public function __construct(PriceHelper $helper)
+    public function __construct(PriceHelperInterface $helper)
     {
         $this->helper = $helper;
     }
