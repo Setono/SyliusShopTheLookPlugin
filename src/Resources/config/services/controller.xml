@@ -6,8 +6,8 @@
     <services>
         <defaults public="true"/>
 
-        <service id="setono_sylius_shop_the_look.controller.look_generate_slug_action"
-                 class="Setono\SyliusShopTheLookPlugin\Controller\LookGenerateSlugAction">
+        <service id="setono_sylius_shop_the_look.controller.admin.look_generate_slug_action"
+                 class="Setono\SyliusShopTheLookPlugin\Controller\Admin\LookGenerateSlugAction">
             <argument type="service" id="sylius.generator.slug" />
         </service>
 
