@@ -31,9 +31,9 @@ final class PriceExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('setono_look_currency_symbol', function(string $currency){
+            new TwigFunction('setono_look_currency_symbol', function (string $currency): string {
                 return Currencies::getSymbol($currency, 'en');
-            })
+            }),
         ];
     }
 }
