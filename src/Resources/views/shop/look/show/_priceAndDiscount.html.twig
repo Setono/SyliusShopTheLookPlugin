@@ -1,6 +1,6 @@
 {% import "@SetonoSyliusShopTheLookPlugin/common/macro/money.html.twig" as money %}
 
-<div class="sylius-look-price" {{ sylius_test_html_attribute('look-price') }}>
+<div class="setono-look-price" {{ sylius_test_html_attribute('look-price') }}>
     {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
     {% if look.discount > 0 %}
         <div>Save {{ look.displayableDiscount }}%</div>
