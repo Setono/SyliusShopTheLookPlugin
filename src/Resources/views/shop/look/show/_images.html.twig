@@ -13,7 +13,7 @@
 {% endif %}
 
 <div data-look-image="{{ path }}" data-look-link="{{ original_path }}"></div>
-<a href="{{ original_path }}" class="ui fluid image" data-lightbox="sylius-look-image">
+<a href="{{ original_path }}" class="ui fluid image" data-lightbox="setono-look-image">
     <img src="{{ path }}" id="main-image" alt="{{ look.name }}" {{ sylius_test_html_attribute('main-image') }} />
 </a>
 {% if look.images|length > 1 %}
@@ -25,7 +25,7 @@
         {% for image in look.images %}
             {% set path = image.path is not null ? image.path|imagine_filter('sylius_small') : '//placehold.it/200x200' %}
             <div class="ui image">
-                <a href="{{ image.path|imagine_filter('sylius_large') }}" data-lightbox="sylius-look-image">
+                <a href="{{ image.path|imagine_filter('sylius_large') }}" data-lightbox="setono-look-image">
                     <img src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_large') }}" alt="{{ look.name }}" />
                 </a>
             </div>
