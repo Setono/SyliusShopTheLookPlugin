@@ -1,8 +1,20 @@
 {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
 {% for part in look.parts %}
-    <h2>{{ part.name }}</h2>
+    {% if part.products|length > 0 %}
+        <h2>{{ part.name }}</h2>
 
-    {% for product in part.products %}
-        {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.product', {'product': product, 'look': look}) }}
-    {% endfor %}
+        <div data-part-id="{{ part.id }}"
+             class="setono-shop-the-look-carousel-container setono-shop-the-look-carousel-container-{{ part.id }} swiper-container">
+            <div class="setono-shop-the-look-carousel-wrapper swiper-wrapper">
+                {% for product in part.products %}
+                    <div class="setono-shop-the-look-carousel-slide swiper-slide">
+                        {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.product', {'product': product, 'look': look}) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="setono-shop-the-look-carousel-button setono-shop-the-look-carousel-button-next swiper-button-next"></div>
+            <div class="setono-shop-the-look-carousel-button setono-shop-the-look-carousel-button-prev swiper-button-prev"></div>
+        </div>
+    {% endif %}
 {% endfor %}
