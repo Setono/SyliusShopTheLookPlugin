@@ -1,4 +1,9 @@
+{% import "@SetonoSyliusShopTheLookPlugin/common/macro/money.html.twig" as money %}
+
 {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
+<div
+    data-currency-symbol="{{ setono_look_currency_symbol(sylius.currencyCode) }}"
+    class="setono-shop-the-look-parts">
 {% for part in look.parts %}
     {% if part.products|length > 0 %}
         <h2>{{ part.name }}</h2>
@@ -7,7 +12,10 @@
              class="setono-shop-the-look-carousel-container setono-shop-the-look-carousel-container-{{ part.id }} swiper-container">
             <div class="setono-shop-the-look-carousel-wrapper swiper-wrapper">
                 {% for product in part.products %}
-                    <div class="setono-shop-the-look-carousel-slide swiper-slide">
+                    {% set variant = product|sylius_resolve_variant %}
+                    <div data-product-price="{{ money.calculatePriceAmount(variant) }}"
+                         data-product-discount="{{ money.calculateDiscountAmount(variant, look) }}"
+                         class="setono-shop-the-look-carousel-slide swiper-slide">
                         {{ sylius_template_event('setono_sylius_shop_the_look.shop.look.show.product', {'product': product, 'look': look}) }}
                     </div>
                 {% endfor %}
@@ -18,3 +26,4 @@
         </div>
     {% endif %}
 {% endfor %}
+</div>
