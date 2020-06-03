@@ -23,9 +23,6 @@ sylius_fixtures:
                                 name: 'Look with random products'
                                 discount: 10
                                 position: 1
-                                translations:
-                                    de_DE:
-                                        name: 'Öko look'
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts: 
