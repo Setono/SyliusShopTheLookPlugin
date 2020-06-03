@@ -3,7 +3,14 @@
 <div class="setono-look-price" {{ sylius_test_html_attribute('look-price') }}>
     {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface look #}
     {% if look.discount > 0 %}
-        <div>Save {{ look.displayableDiscount }}%</div>
+        <div>
+            Save
+            {{ look.displayableDiscount }}%
+            (
+                <span>{{ money.calculateLookDiscount(look) }}</span>
+                OFF
+            )
+        </div>
         <strike>{{ money.calculateLookTotal(look) }}</strike>
     {% endif %}
 
