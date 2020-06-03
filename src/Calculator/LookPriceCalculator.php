@@ -45,7 +45,6 @@ final class LookPriceCalculator implements LookPriceCalculatorInterface
                 );
 
                 // We need only price of first product
-                // @todo Create LookPartProductResolver to be able to update price based on selected products at parts
                 break;
             }
         }
