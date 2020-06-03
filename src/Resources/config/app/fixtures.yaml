@@ -49,6 +49,11 @@ sylius_fixtures:
                                     de_DE:
                                         name: 'Öko-kappe aussehen'
                                 images:
+                                    # More images to check lightbox works well
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts:
                                     -   name: 'Cap'
