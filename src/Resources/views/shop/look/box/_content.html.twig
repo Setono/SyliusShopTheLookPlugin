@@ -17,9 +17,9 @@
         <a href="{{ path('setono_sylius_shop_the_look_shop_look_show', {'slug': look.slug, '_locale': look.translation.locale}) }}" class="header setono-look-name" {{ sylius_test_html_attribute('look-name', look.name) }}>{{ look.name }}</a>
         <div class="setono-look-price" {{ sylius_test_html_attribute('look-price') }}>
             {% if look.discount > 0 %}
-                <strike>{{ money.calculateLookTotal(look) }}</strike>
+                <strike>{{ money.calculateLookPrice(look) }}</strike>
             {% endif %}
-            {{ money.calculateLookPrice(look) }}
+            {{ money.calculateLookTotal(look) }}
         </div>
     </div>
 </div>

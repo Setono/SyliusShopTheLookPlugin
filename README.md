@@ -77,7 +77,7 @@ adminConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPlug
 // ...
 
 // Shop
-const setonoShopTheLookPluginShopResources = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/shop');
+const setonoShopTheLookPluginShopResources = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/shop/');
 // ...
 shopConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginShopResources;
 ```

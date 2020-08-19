@@ -25,6 +25,7 @@ final class PriceExtension extends AbstractExtension
             new TwigFilter('setono_look_calculate_price', [$this->helper, 'getPrice']),
             new TwigFilter('setono_look_calculate_discount', [$this->helper, 'getDiscount']),
             new TwigFilter('setono_look_calculate_total', [$this->helper, 'getTotal']),
+            new TwigFilter('setono_look_calculate_variant_discount', [$this->helper, 'getVariantDiscount']),
         ];
     }
 

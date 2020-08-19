@@ -21,6 +21,7 @@ setono_sylius_shop_the_look:
         edit_look: Edit look
         look_adjustment_total: Looks total discount
         look_discounts: Look discounts
+        look_discount: Look discount
         looks: Looks
         manage_looks: Manage looks
         name: Name

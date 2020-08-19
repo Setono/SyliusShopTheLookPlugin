@@ -8,7 +8,7 @@
 {% if lookAdjustmentsTotal != 0 %}
     {% set lookAdjustments = sylius_aggregate_adjustments(order.getAdjustmentsRecursively(lookAdjustment)) %}
     <tr>
-        <td colspan="5">
+        <td colspan="{{ cols - 4 }}">
             <div class="ui relaxed divided list">
                 <div class="item">
                     <strong>{{ 'setono_sylius_shop_the_look.ui.look_discounts'|trans }}:</strong>

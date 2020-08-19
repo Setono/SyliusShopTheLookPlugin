@@ -41,6 +41,7 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 code: 'eco'
+                                discount: 30
                                 position: 20
                                 name: 'Eco cap look'
                                 description: 'Look with eco cap'

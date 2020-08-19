@@ -64,10 +64,16 @@
             "@ensure-test-container-exists",
             "psalm"
         ],
-        "check-style": "ecs check src/",
+        "check-style": "ecs check src/ tests/Calculator/",
         "ensure-test-container-exists": "[[ -f tests/Application/var/cache/test/ApplicationTests_Setono_SyliusShopTheLookPlugin_Application_KernelTestDebugContainer.xml ]] || tests/Application/bin/console cache:warmup --env=test",
-        "fix-style": "ecs check src/ --fix",
+        "fix-style": "ecs check src/  tests/Calculator/ --fix",
+        "fixtures": "(cd tests/Application && bin/console sylius:fixtures:load default -n)",
         "phpspec": "vendor/bin/phpspec run",
-        "phpunit": "phpunit"
+        "phpunit": "phpunit",
+        "psalm": "vendor/bin/psalm --show-info=true",
+        "tests": [
+            "@phpspec",
+            "@phpunit"
+        ]
     }
 }
