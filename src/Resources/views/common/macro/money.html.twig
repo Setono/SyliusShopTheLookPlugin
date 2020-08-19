@@ -29,5 +29,5 @@
 {%- macro calculateDiscountAmount(variant, look) -%}
     {% from _self import convert %}
 
-    {{- convert(variant|sylius_calculate_price({'channel': sylius.channel}) * look.discount) -}}
+    {{- convert(variant|setono_look_calculate_variant_discount(look, {'channel': sylius.channel})) -}}
 {%- endmacro -%}

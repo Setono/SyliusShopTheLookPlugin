@@ -11,10 +11,10 @@
                 OFF
             )
         </div>
-        <strike class="setono-look-total">{{ money.calculateLookTotal(look) }}</strike>
+        <strike class="setono-look-price">{{ money.calculateLookPrice(look) }}</strike>
     {% endif %}
 
-    <span class="setono-look-price">
-        {{ money.calculateLookPrice(look) }}
+    <span class="setono-look-total">
+        {{ money.calculateLookTotal(look) }}
     </span>
 </div>

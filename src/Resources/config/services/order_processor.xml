@@ -11,7 +11,8 @@
             <argument type="service" id="setono_sylius_shop_the_look.repository.look"/>
             <argument type="service" id="sylius.factory.adjustment"/>
 
-            <tag name="sylius.order_processor" priority="40"/>
+            <!-- Before sylius.order_processing.shipping_charges_processor with priority 30 -->
+            <tag name="sylius.order_processor" priority="35"/>
         </service>
 
     </services>
