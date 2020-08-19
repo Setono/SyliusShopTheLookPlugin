@@ -13,7 +13,10 @@ sylius_fixtures:
                                 position: 2
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
-                                parts: ['Hat', 'Jacket', 'Pants']
+                                parts:
+                                    - 'Hat'
+                                    - 'Jacket'
+                                    - 'Pants'
 
                 setono_look_with_random_products_2:
                     name: setono_look
@@ -75,5 +78,12 @@ sylius_fixtures:
                     options:
                         random: 3
                         prototype:
+                            images:
+                                - type: 'slide'
+                                  path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg'
+                            parts:
+                                - name: 'One'
+                                - name: 'Two'
+                                - name: 'Three'
                             position: 10
                             enabled: false
