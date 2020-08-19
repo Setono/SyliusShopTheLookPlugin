@@ -8,7 +8,7 @@
 {% if lookAdjustmentsTotal != 0 %}
     {% set lookAdjustments = sylius_aggregate_adjustments(order.getAdjustmentsRecursively(lookAdjustment)) %}
     <tr>
-        <td colspan="{{ cols - 4 }}">
+        <td colspan="{{ cols - 4 }}" id="look-discounts" class="promotion-disabled">
             <div class="ui relaxed divided list">
                 <div class="item">
                     <strong>{{ 'setono_sylius_shop_the_look.ui.look_discounts'|trans }}:</strong>
@@ -17,15 +17,13 @@
                     <div class="item">
                         <div class="right floated">{{ money.format(amount, order.currencyCode) }}</div>
                         <div class="content">
-                            <div class="description">
-                                {{ label }}
-                            </div>
+                            <div class="content"><strong>{{ label }}</strong>:</div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         </td>
-        <td colspan="4" class="right aligned">
+        <td colspan="4" id="look-total" class="right aligned promotion-disabled">
             <strong>{{ 'setono_sylius_shop_the_look.ui.look_adjustment_total'|trans }}</strong>:
             {{ money.format(lookAdjustmentsTotal, order.currencyCode) }}
         </td>
