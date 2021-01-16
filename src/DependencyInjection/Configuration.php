@@ -14,7 +14,6 @@ use Setono\SyliusShopTheLookPlugin\Form\Type\LookType;
 use Setono\SyliusShopTheLookPlugin\Model\Look;
 use Setono\SyliusShopTheLookPlugin\Model\LookImage;
 use Setono\SyliusShopTheLookPlugin\Model\LookImageInterface;
-use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookPart;
 use Setono\SyliusShopTheLookPlugin\Model\LookPartInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookTranslation;
@@ -32,14 +31,9 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('setono_sylius_shop_the_look');
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            // BC layer for symfony/config 4.1 and older
-            /** @var ArrayNodeDefinition $rootNode */
-            $rootNode = $treeBuilder->root('setono_sylius_shop_the_look');
-        }
+
+        /** @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
@@ -68,7 +62,6 @@ final class Configuration implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->children()
                                         ->scalarNode('model')->defaultValue(Look::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(LookInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->defaultValue(LookRepository::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(LookType::class)->end()

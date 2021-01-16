@@ -13,11 +13,9 @@ use Webmozart\Assert\Assert;
 
 final class LookPriceCalculator implements LookPriceCalculatorInterface
 {
-    /** @var ProductVariantResolverInterface */
-    private $productVariantResolver;
+    private ProductVariantResolverInterface $productVariantResolver;
 
-    /** @var ProductVariantPriceCalculatorInterface */
-    private $productVariantPriceCalculator;
+    private ProductVariantPriceCalculatorInterface $productVariantPriceCalculator;
 
     public function __construct(
         ProductVariantResolverInterface $productVariantResolver,

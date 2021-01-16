@@ -10,8 +10,7 @@ use Twig\TwigFilter;
 
 final class PriceExtension extends AbstractExtension
 {
-    /** @var PriceHelper */
-    private $helper;
+    private PriceHelper $helper;
 
     public function __construct(PriceHelper $helper)
     {

@@ -11,8 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class LookGenerateSlugAction
 {
-    /** @var SlugGeneratorInterface */
-    private $slugGenerator;
+    private SlugGeneratorInterface $slugGenerator;
 
     public function __construct(SlugGeneratorInterface $slugGenerator)
     {

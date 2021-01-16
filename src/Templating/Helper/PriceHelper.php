@@ -10,8 +10,7 @@ use Symfony\Component\Templating\Helper\Helper;
 
 class PriceHelper extends Helper
 {
-    /** @var LookPriceCalculatorInterface */
-    private $lookPriceCalculator;
+    private LookPriceCalculatorInterface $lookPriceCalculator;
 
     public function __construct(LookPriceCalculatorInterface $lookPriceCalculator)
     {

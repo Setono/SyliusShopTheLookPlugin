@@ -167,10 +167,10 @@ class Look implements LookInterface
 
     public function getProducts(): Collection
     {
-        // @todo Refactor?
         $products = new ArrayCollection();
         foreach ($this->parts as $part) {
             foreach ($part->getProducts() as $product) {
+                /** @psalm-suppress InvalidArgument */
                 $products->add($product);
             }
         }
