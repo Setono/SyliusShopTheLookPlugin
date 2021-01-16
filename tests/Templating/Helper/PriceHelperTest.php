@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Setono\SyliusShopTheLookPlugin;
+namespace Tests\Setono\SyliusShopTheLookPlugin\Templating\Helper;
 
 use PHPUnit\Framework\TestCase;
 use Setono\SyliusShopTheLookPlugin\Calculator\LookPriceCalculatorInterface;
