@@ -27,7 +27,7 @@
     "require-dev": {
         "matthiasnoback/symfony-config-test": "^4.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.2",
-        "phpspec/phpspec": "^6.3",
+        "phpspec/phpspec": "^6.3 || ^7.0",
         "phpunit/phpunit": "^9.5",
         "setono/code-quality-pack": "^1.5",
         "sylius/sylius": "~1.7.0",
