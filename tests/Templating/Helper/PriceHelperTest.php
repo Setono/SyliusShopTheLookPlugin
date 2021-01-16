@@ -19,10 +19,9 @@ final class PriceHelperTest extends TestCase
     public function it_calculates_correctly(float $lookDiscount, int $calculatedTotal, int $calculatedPrice, int $calculatedDiscount): void
     {
         $calculator = new class($calculatedTotal) implements LookPriceCalculatorInterface {
-            /** @var int */
-            private $total;
+            private int $total;
 
-            public function __construct($total)
+            public function __construct(int $total)
             {
                 $this->total = $total;
             }
