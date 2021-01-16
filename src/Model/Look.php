@@ -7,6 +7,7 @@ namespace Setono\SyliusShopTheLookPlugin\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImageInterface;
+use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Webmozart\Assert\Assert;
@@ -167,10 +168,10 @@ class Look implements LookInterface
 
     public function getProducts(): Collection
     {
-        // @todo Refactor?
         $products = new ArrayCollection();
         foreach ($this->parts as $part) {
             foreach ($part->getProducts() as $product) {
+                /** @psalm-suppress InvalidArgument */
                 $products->add($product);
             }
         }

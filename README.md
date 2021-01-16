@@ -3,7 +3,6 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-github-actions]][link-github-actions]
-[![Quality Score][ico-code-quality]][link-code-quality]
 
 ## Installation
 
@@ -120,8 +119,6 @@ to cart/checkout/order templates like it was done at [tests/Application/template
 [ico-version]: https://img.shields.io/packagist/v/setono/sylius-shop-the-look-plugin.svg
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg
 [ico-github-actions]: https://github.com/Setono/SyliusShopTheLookPlugin/workflows/build/badge.svg
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/SyliusShopTheLookPlugin.svg
 
 [link-packagist]: https://packagist.org/packages/setono/sylius-shop-the-look-plugin
 [link-github-actions]: https://github.com/Setono/SyliusShopTheLookPlugin/actions
-[link-code-quality]: https://scrutinizer-ci.com/g/Setono/SyliusShopTheLookPlugin

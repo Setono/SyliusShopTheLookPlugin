@@ -17,14 +17,11 @@ use Webmozart\Assert\Assert;
 
 final class LookDiscountOrderProcessor implements OrderProcessorInterface
 {
-    /** @var LookMatcherInterface */
-    private $lookMatcher;
+    private LookMatcherInterface $lookMatcher;
 
-    /** @var LookRepositoryInterface */
-    private $lookRepository;
+    private LookRepositoryInterface $lookRepository;
 
-    /** @var AdjustmentFactoryInterface */
-    private $adjustmentFactory;
+    private AdjustmentFactoryInterface $adjustmentFactory;
 
     public function __construct(
         LookMatcherInterface $lookMatcher,
@@ -88,7 +85,7 @@ final class LookDiscountOrderProcessor implements OrderProcessorInterface
     {
         $adjustment = $this->adjustmentFactory->createWithData(
             AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT,
-            $look->getName(),
+            (string) $look->getName(),
             -1 * $total
         );
         $adjustment->setOriginCode((string) $look->getId());
