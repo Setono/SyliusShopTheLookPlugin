@@ -28,7 +28,7 @@
         "matthiasnoback/symfony-config-test": "^4.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.2",
         "phpspec/phpspec": "^6.3",
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^9.5",
         "setono/code-quality-pack": "^1.5",
         "sylius/sylius": "~1.7.0",
         "symfony/debug-bundle": "^4.4 || ^5.0",

@@ -36,6 +36,7 @@ final class LookDiscountOrderProcessor implements OrderProcessorInterface
     public function process(OrderInterface $order): void
     {
         // Remove adjustments from previous processor execution
+        // todo should be done in the adjustments clearer by Sylius I guess?
         $order->removeAdjustmentsRecursively(AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT);
 
         if ($order->isEmpty()) {
