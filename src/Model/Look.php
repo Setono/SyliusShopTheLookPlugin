@@ -14,8 +14,10 @@ use Webmozart\Assert\Assert;
 class Look implements LookInterface
 {
     use TimestampableTrait;
+
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
+
         getTranslation as private doGetTranslation;
     }
 

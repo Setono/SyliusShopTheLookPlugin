@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+  <file src="src/Controller/LookGenerateSlugAction.php">
+    <MixedArgument occurrences="1">
+      <code>$name</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$name</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/DependencyInjection/Configuration.php">
+    <MixedMethodCall occurrences="129">
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>addDefaultsIfNotSet</code>
+      <code>arrayNode</code>
+      <code>arrayNode</code>
+      <code>arrayNode</code>
+      <code>arrayNode</code>
+      <code>arrayNode</code>
+      <code>arrayNode</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>cannotBeEmpty</code>
+      <code>children</code>
+      <code>children</code>
+      <code>children</code>
+      <code>children</code>
+      <code>children</code>
+      <code>children</code>
+      <code>children</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>defaultValue</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>end</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>scalarNode</code>
+      <code>variableNode</code>
+      <code>variableNode</code>
+      <code>variableNode</code>
+    </MixedMethodCall>
+    <PossiblyNullReference occurrences="2">
+      <code>arrayNode</code>
+      <code>end</code>
+    </PossiblyNullReference>
+    <PossiblyUndefinedMethod occurrences="2">
+      <code>arrayNode</code>
+      <code>end</code>
+    </PossiblyUndefinedMethod>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>ArrayNodeDefinition</code>
+    </UnnecessaryVarAnnotation>
+    <UnusedMethodCall occurrences="1">
+      <code>end</code>
+    </UnusedMethodCall>
+  </file>
+  <file src="src/DependencyInjection/SetonoSyliusShopTheLookExtension.php">
+    <MixedArgument occurrences="2">
+      <code>$config['driver']</code>
+      <code>$config['resources']</code>
+    </MixedArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$this-&gt;getConfiguration([], $container)</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="src/Doctrine/ORM/LookRepository.php">
+    <MixedInferredReturnType occurrences="4">
+      <code>?LookInterface</code>
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="4"/>
+    <QueryBuilderSetParameter occurrences="1">
+      <code>$product</code>
+    </QueryBuilderSetParameter>
+  </file>
+  <file src="src/Fixture/Factory/LookExampleFactory.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>is_array($imagePath)</code>
+    </DocblockTypeContradiction>
+    <InvalidArgument occurrences="1">
+      <code>$product</code>
+    </InvalidArgument>
+    <MissingClosureParamType occurrences="1">
+      <code>$value</code>
+    </MissingClosureParamType>
+    <MixedArgument occurrences="23">
+      <code>$imageOptions</code>
+      <code>$imagePath</code>
+      <code>$imagePath</code>
+      <code>$imagePath</code>
+      <code>$imagePath</code>
+      <code>$imageType</code>
+      <code>$localeCode</code>
+      <code>$localeCode</code>
+      <code>$options['code']</code>
+      <code>$options['description'] ?? $this-&gt;faker-&gt;paragraph</code>
+      <code>$options['discount']</code>
+      <code>$options['enabled']</code>
+      <code>$options['name']</code>
+      <code>$options['name']</code>
+      <code>$options['name']</code>
+      <code>$options['position']</code>
+      <code>$options['slug'] ?? StringInflector::nameToCode($options['name'])</code>
+      <code>$partOptions</code>
+      <code>$partOptions['name']</code>
+      <code>$partOptions['position']</code>
+      <code>$product</code>
+      <code>$productCode</code>
+      <code>$translationOptions</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$imagePath[array_key_first($imagePath)]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="11">
+      <code>$imageOptions</code>
+      <code>$imagePath</code>
+      <code>$imagePath</code>
+      <code>$imageType</code>
+      <code>$localeCode</code>
+      <code>$localeCode</code>
+      <code>$partOptions</code>
+      <code>$product</code>
+      <code>$productCode</code>
+      <code>$translationOptions</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>float</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$value</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="1">
+      <code>$value</code>
+    </MixedReturnStatement>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$imagePath</code>
+    </PossiblyNullArrayOffset>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>LookPartInterface</code>
+    </UnnecessaryVarAnnotation>
+    <UnusedClosureParam occurrences="4">
+      <code>$options</code>
+      <code>$options</code>
+      <code>$options</code>
+      <code>$options</code>
+    </UnusedClosureParam>
+  </file>
+  <file src="src/LookMatcher/LookMatcher.php">
+    <MissingClosureReturnType occurrences="2">
+      <code>static function (BaseOrderItemInterface $orderItem) {</code>
+      <code>static function (ProductInterface $product) {</code>
+    </MissingClosureReturnType>
+  </file>
+  <file src="src/OrderProcessor/LookDiscountOrderProcessor.php">
+    <MixedArgument occurrences="1">
+      <code>$look</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$look</code>
+      <code>$productId</code>
+    </MixedAssignment>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>ProductInterface|null</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="tests/Templating/Helper/PriceHelperTest.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+</files>
