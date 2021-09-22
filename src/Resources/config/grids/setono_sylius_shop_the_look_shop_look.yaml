@@ -14,5 +14,5 @@ sylius_grid:
             limits: [9, 18, 27]
             fields:
                 position:
-                    type: string 
+                    type: string
                     sortable: ~
