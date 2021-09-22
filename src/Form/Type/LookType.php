@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PercentType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class LookType extends AbstractResourceType
@@ -19,6 +20,10 @@ final class LookType extends AbstractResourceType
     {
         $builder
             ->addEventSubscriber(new AddCodeFormSubscriber())
+            ->add('type', TextType::class, [
+                'label' => 'setono_sylius_shop_the_look.form.look.type',
+                'required' => false,
+            ])
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => LookTranslationType::class,
                 'label' => 'setono_sylius_shop_the_look.form.look.translations',

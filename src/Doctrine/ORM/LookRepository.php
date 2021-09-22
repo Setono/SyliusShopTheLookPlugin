@@ -17,15 +17,22 @@ class LookRepository extends EntityRepository implements LookRepositoryInterface
         return $this->createQueryBuilder('o');
     }
 
-    public function createShopListQueryBuilder(string $locale): QueryBuilder
+    public function createShopListQueryBuilder(string $locale, string $type = null): QueryBuilder
     {
-        return $this->createQueryBuilder('o')
+        $qb = $this->createQueryBuilder('o')
             ->distinct()
             ->addSelect('translation')
             ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
             ->andWhere('o.enabled = true')
             ->setParameter('locale', $locale)
         ;
+
+        if (null !== $type) {
+            $qb->andWhere('o.type = :type')
+                ->setParameter('type', $type);
+        }
+
+        return $qb;
     }
 
     public function findEnabled(): array

@@ -9,6 +9,7 @@ sylius_grid:
                         method: createShopListQueryBuilder
                         arguments:
                             - "%locale%"
+                            - $type
             sorting:
                 position: asc
             limits: [9, 18, 27]

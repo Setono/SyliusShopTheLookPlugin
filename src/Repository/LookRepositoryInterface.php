@@ -13,7 +13,7 @@ interface LookRepositoryInterface extends RepositoryInterface
 {
     public function createListQueryBuilder(): QueryBuilder;
 
-    public function createShopListQueryBuilder(string $locale): QueryBuilder;
+    public function createShopListQueryBuilder(string $locale, string $type = null): QueryBuilder;
 
     public function findEnabled(): array;
 

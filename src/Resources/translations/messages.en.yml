@@ -2,26 +2,28 @@ setono_sylius_shop_the_look:
     form:
         look:
             description: Description
+            discount: Discount
+            enabled: Enabled
             images: Images
             name: Name
-            discount: Discount
             parts: Parts
+            position: Position
             products: Products
             slug: Slug
             translations: Translations
-            enabled: Enabled
-            position: Position
+            type: Type
+            type_help: Use the type to group looks together and link directly to this 'group' of looks by appending the type to the default look index URL. The type can only be comprised of letters, numbers, and dashes. Also it's best practice to use lower case.
         look_part:
             name: Name
             products: Products
             position: Position
     ui:
-        looks: Looks
-        manage_looks: Manage looks
-        new_look: New look
         edit_look: Edit look
-        name: Name
-        parts: Parts
-        no_parts: No parts
         look_adjustment_total: Looks total discount
         look_discounts: Look discounts
+        looks: Looks
+        manage_looks: Manage looks
+        name: Name
+        new_look: New look
+        no_parts: No parts
+        parts: Parts

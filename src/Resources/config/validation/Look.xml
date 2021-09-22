@@ -23,6 +23,14 @@
             </constraint>
         </property>
 
+        <property name="type">
+            <constraint name="Regex">
+                <option name="message">setono_sylius_shop_the_look.look.type.regex</option>
+                <option name="pattern">/^[\w-]*$/</option>
+                <option name="groups">setono_sylius_shop_the_look</option>
+            </constraint>
+        </property>
+
         <property name="discount">
             <constraint name="NotBlank">
                 <option name="message">setono_sylius_shop_the_look.look.discount.not_blank</option>

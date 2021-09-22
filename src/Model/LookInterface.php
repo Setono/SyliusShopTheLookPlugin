@@ -15,6 +15,10 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 
 interface LookInterface extends ResourceInterface, TimestampableInterface, CodeAwareInterface, SlugAwareInterface, ImagesAwareInterface, TranslatableInterface
 {
+    public function getType(): ?string;
+
+    public function setType(?string $type): void;
+
     public function getName(): ?string;
 
     public function setName(?string $name): void;
