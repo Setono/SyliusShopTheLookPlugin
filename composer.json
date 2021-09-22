@@ -19,8 +19,8 @@
         "webmozart/assert": "^1.9"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.9",
         "friendsofphp/proxy-manager-lts": "^1.0",
+        "fzaninotto/faker": "^1.9",
         "matthiasnoback/symfony-config-test": "^4.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.2",
         "phpspec/phpspec": "^6.3",
