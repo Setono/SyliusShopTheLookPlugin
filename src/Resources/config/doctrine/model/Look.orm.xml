@@ -12,6 +12,7 @@
         </id>
 
         <field name="code" column="code" type="string" unique="true"/>
+        <field name="type" column="type" type="string" nullable="true"/>
         <field name="discount" column="discount" type="decimal" precision="10" scale="5">
             <options>
                 <option name="default">0</option>
@@ -55,5 +56,9 @@
                 <cascade-all/>
             </cascade>
         </one-to-many>
+
+        <indexes>
+            <index columns="type"/>
+        </indexes>
     </mapped-superclass>
 </doctrine-mapping>
