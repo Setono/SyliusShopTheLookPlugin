@@ -6,7 +6,6 @@ namespace Setono\SyliusShopTheLookPlugin\Fixture\Factory;
 
 use Faker\Factory;
 use Faker\Generator;
-use function Safe\sprintf;
 use Setono\SyliusShopTheLookPlugin\Factory\LookPartFactoryInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookImageInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
