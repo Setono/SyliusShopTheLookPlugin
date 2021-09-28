@@ -20,7 +20,7 @@ final class LookGenerateSlugAction
 
     public function __invoke(Request $request): Response
     {
-        $name = $request->query->get('name');
+        $name = (string) $request->query->get('name');
 
         return new JsonResponse([
             'slug' => $this->slugGenerator->generate($name),

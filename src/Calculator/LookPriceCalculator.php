@@ -77,7 +77,7 @@ final class LookPriceCalculator implements LookPriceCalculatorInterface
                 $productVariant = $this->productVariantResolver->getVariant($product);
                 Assert::notNull($productVariant);
 
-                $total += call_user_func_array($fn, [$productVariant, $context]);
+                $total += (int) call_user_func_array($fn, [$productVariant, $context]);
 
                 // We need only price of first product
                 // If user will select other than first product, that

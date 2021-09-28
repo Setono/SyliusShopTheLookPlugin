@@ -71,6 +71,9 @@ final class LookPriceCalculatorTest extends TestCase
         self::assertEquals($calculatedTotal, $calculator->calculateTotal($look, $context));
     }
 
+    /**
+     * @psalm-return array{array{int, int, float, int, int, int}}
+     */
     public function dataProvider(): array
     {
         return [
