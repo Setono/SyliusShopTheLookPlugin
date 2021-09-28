@@ -31,10 +31,12 @@
     "Sylius\\Component\\Core\\Model\\ImagesAwareInterface",
     "Sylius\\Component\\Core\\Model\\OrderItemInterface",
     "Sylius\\Component\\Core\\Model\\ProductInterface",
+    "Sylius\\Component\\Core\\Model\\ProductVariantInterface",
     "Sylius\\Component\\Core\\Repository\\ProductRepositoryInterface",
     "Sylius\\Component\\Core\\Uploader\\ImageUploaderInterface",
     "Sylius\\Component\\Order\\Factory\\AdjustmentFactoryInterface",
     "Sylius\\Component\\Order\\Model\\OrderInterface",
+    "Sylius\\Component\\Order\\Model\\OrderItemUnitInterface",
     "Sylius\\Component\\Order\\Processor\\OrderProcessorInterface",
     "Sylius\\Component\\Product\\Generator\\SlugGeneratorInterface",
     "Sylius\\Component\\Product\\Resolver\\ProductVariantResolverInterface"
