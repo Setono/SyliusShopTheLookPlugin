@@ -8,6 +8,7 @@ sylius_fixtures:
                     options:
                         custom:
                             look_1:
+                                type: 'random'
                                 name: 'Look with 3 random products per part'
                                 discount: 20
                                 position: 2
@@ -23,6 +24,7 @@ sylius_fixtures:
                     options:
                         custom:
                             look_1:
+                                type: 'random'
                                 name: 'Look with random products'
                                 discount: 10
                                 position: 1
@@ -43,6 +45,7 @@ sylius_fixtures:
                     options:
                         custom:
                             look_1:
+                                type: 'specific'
                                 code: 'eco'
                                 discount: 30
                                 position: 20
