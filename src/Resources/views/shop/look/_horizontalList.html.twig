@@ -1,6 +1,8 @@
 {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface[] looks #}
+{% if looks|length > 0 %}
 <div class="ui four doubling cards">
     {% for look in looks %}
         {% include '@SetonoSyliusShopTheLookPlugin/shop/look/_box.html.twig' %}
     {% endfor %}
 </div>
+{% endif %}
