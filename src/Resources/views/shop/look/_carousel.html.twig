@@ -1,5 +1,6 @@
 {# @var \Setono\SyliusShopTheLookPlugin\Model\LookInterface[] looks #}
 
+{% if looks|length > 0 %}
 <div class="carousel-wrapper">
     <div class="carousel">
         {% for look in looks %}
@@ -18,3 +19,4 @@
         </button>
     </div>
 </div>
+{% endif %}

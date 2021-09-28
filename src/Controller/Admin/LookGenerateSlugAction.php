@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Setono\SyliusShopTheLookPlugin\Controller;
+namespace Setono\SyliusShopTheLookPlugin\Controller\Admin;
 
 use Sylius\Component\Product\Generator\SlugGeneratorInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,7 +20,7 @@ final class LookGenerateSlugAction
 
     public function __invoke(Request $request): Response
     {
-        $name = $request->query->get('name');
+        $name = (string) $request->query->get('name');
 
         return new JsonResponse([
             'slug' => $this->slugGenerator->generate($name),

@@ -13,7 +13,10 @@ sylius_fixtures:
                                 position: 2
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
-                                parts: ['Hat', 'Jacket', 'Pants']
+                                parts:
+                                    - 'Hat'
+                                    - 'Jacket'
+                                    - 'Pants'
 
                 setono_look_with_random_products_2:
                     name: setono_look
@@ -23,9 +26,6 @@ sylius_fixtures:
                                 name: 'Look with random products'
                                 discount: 10
                                 position: 1
-                                translations:
-                                    de_DE:
-                                        name: 'Öko look'
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts: 
@@ -44,6 +44,7 @@ sylius_fixtures:
                         custom:
                             look_1:
                                 code: 'eco'
+                                discount: 30
                                 position: 20
                                 name: 'Eco cap look'
                                 description: 'Look with eco cap'
@@ -52,6 +53,11 @@ sylius_fixtures:
                                     de_DE:
                                         name: 'Öko-kappe aussehen'
                                 images:
+                                    # More images to check lightbox works well
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.jpg' }
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg' }
                                 parts:
                                     -   name: 'Cap'
@@ -72,5 +78,12 @@ sylius_fixtures:
                     options:
                         random: 3
                         prototype:
+                            images:
+                                - type: 'slide'
+                                  path: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.jpg'
+                            parts:
+                                - name: 'One'
+                                - name: 'Two'
+                                - name: 'Three'
                             position: 10
                             enabled: false

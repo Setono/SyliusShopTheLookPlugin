@@ -15,3 +15,19 @@
 
     {{- convertAndFormat(look|setono_look_calculate_total({'channel': sylius.channel})) }}
 {%- endmacro -%}
+
+{%- macro convert(amount) -%}
+    {{- amount|sylius_convert_money(sylius.channel.baseCurrency.code, sylius.currencyCode) -}}
+{%- endmacro -%}
+
+{%- macro calculatePriceAmount(variant) -%}
+    {% from _self import convert %}
+
+    {{- convert(variant|sylius_calculate_price({'channel': sylius.channel})) -}}
+{%- endmacro -%}
+
+{%- macro calculateDiscountAmount(variant, look) -%}
+    {% from _self import convert %}
+
+    {{- convert(variant|setono_look_calculate_variant_discount(look, {'channel': sylius.channel})) -}}
+{%- endmacro -%}

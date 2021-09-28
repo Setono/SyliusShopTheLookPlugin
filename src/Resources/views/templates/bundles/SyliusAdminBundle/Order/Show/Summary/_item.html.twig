@@ -1,0 +1,7 @@
+{% import "@SyliusAdmin/Common/Macro/money.html.twig" as money %}
+{% set itemLookAdjustment = constant('Setono\\SyliusShopTheLookPlugin\\Model\\AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT') %}
+{% set itemLookAdjustments = item.getAdjustmentsTotalRecursively(itemLookAdjustment) %}
+
+<td class="right aligned item-discount">
+    {{ money.format(itemLookAdjustments, order.currencyCode) }}
+</td>

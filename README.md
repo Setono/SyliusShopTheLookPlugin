@@ -60,20 +60,39 @@ $bundles = [
 
 #### If you're using Webpack encore in your app:
 
+- Add swiper to your `package.json`:
+
+```bash
+yarn add swiper
+```
+
 - Specify plugin's scripts alias at `webpack.config.js`:
 
 ```js
 // webpack.config.js
-const setonoShopTheLookPluginAdminScripts = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/admin/js/');
+// Admin
+const setonoShopTheLookPluginAdminResources = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/admin/');
 // ...
-adminConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginAdminScripts;
+adminConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginAdminResources;
+// ...
+
+// Shop
+const setonoShopTheLookPluginShopResources = path.resolve(__dirname, 'vendor/setono/sylius-shop-the-look-plugin/src/Resources/private/shop/');
+// ...
+shopConfig.resolve.alias['setono/shop-the-look-plugin'] = setonoShopTheLookPluginShopResources;
 ```
 
-- Use plugin's admin app at `assets/admin/js/app.js`:
+- Use plugin's apps/styles:
 
 ```js
 // assets/admin/js/app.js
-import 'setono/shop-the-look-plugin/app';
+import 'setono/shop-the-look-plugin/js/app';
+```
+
+```js
+// assets/shop/js/app.js
+import 'setono/shop-the-look-plugin/js/app';
+import 'setono/shop-the-look-plugin/scss/app';
 ```
 
 - And run `yarn encore dev` to rebuild it
@@ -103,6 +122,9 @@ imports:
     // ...
     - { resource: "@SetonoSyliusShopTheLookPlugin/Resources/config/app/ui/admin.yaml" }
 ```
+
+Also, you should discover [src/Resources/private](src/Resources/private)
+and adjust shop styles/scripts to your needs.
 
 ### Update your database:
 

@@ -6,7 +6,6 @@ namespace Setono\SyliusShopTheLookPlugin\Calculator;
 
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
 use Sylius\Component\Core\Calculator\ProductVariantPriceCalculatorInterface;
-use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ProductVariantInterface;
 use Sylius\Component\Product\Resolver\ProductVariantResolverInterface;
 use Webmozart\Assert\Assert;
@@ -25,31 +24,68 @@ final class LookPriceCalculator implements LookPriceCalculatorInterface
         $this->productVariantPriceCalculator = $productVariantPriceCalculator;
     }
 
-    public function calculate(LookInterface $look, array $context): int
+    public function calculatePrice(LookInterface $look, array $context): int
     {
-        Assert::keyExists($context, 'channel');
+        return $this->calculateCallableTotal(
+            $look,
+            [$this->productVariantPriceCalculator, 'calculate'],
+            $context
+        );
+    }
 
-        $channel = $context['channel'];
-        Assert::isInstanceOf($channel, ChannelInterface::class);
+    public function calculateDiscount(LookInterface $look, array $context): int
+    {
+        return $this->calculateCallableTotal($look, function (ProductVariantInterface $productVariant, array $context) use ($look): int {
+            $itemPrice = $this->productVariantPriceCalculator->calculate(
+                $productVariant,
+                $context
+            );
 
-        $price = 0;
+            return (int) round($itemPrice * $look->getDiscount());
+        }, $context);
+    }
+
+    public function calculateTotal(LookInterface $look, array $context): int
+    {
+        return $this->calculatePrice($look, $context) - $this->calculateDiscount($look, $context);
+    }
+
+    /**
+     * @todo Move to separate calculator?
+     *
+     * We need this as far as when we pass (variant|sylius_calculate_price * discount)
+     * to sylius_convert_money, it not round that float, but just floor it as
+     * sylius_convert_money expect int at its first argument and twig converts
+     * that way for some reason
+     */
+    public function calculateVariantDiscount(ProductVariantInterface $productVariant, LookInterface $look, array $context): int
+    {
+        $itemPrice = $this->productVariantPriceCalculator->calculate(
+            $productVariant,
+            $context
+        );
+
+        return (int) round($itemPrice * $look->getDiscount());
+    }
+
+    private function calculateCallableTotal(LookInterface $look, callable $fn, array $context): int
+    {
+        $total = 0;
         foreach ($look->getParts() as $lookPart) {
             foreach ($lookPart->getProducts() as $product) {
                 /** @var ProductVariantInterface|null $productVariant */
                 $productVariant = $this->productVariantResolver->getVariant($product);
                 Assert::notNull($productVariant);
 
-                $price += $this->productVariantPriceCalculator->calculate(
-                    $productVariant,
-                    $context
-                );
+                $total += (int) call_user_func_array($fn, [$productVariant, $context]);
 
                 // We need only price of first product
-                // @todo Create LookPartProductResolver to be able to update price based on selected products at parts
+                // If user will select other than first product, that
+                // will be recalculated by client-size script
                 break;
             }
         }
 
-        return $price;
+        return $total;
     }
 }

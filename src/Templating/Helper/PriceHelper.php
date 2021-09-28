@@ -6,9 +6,10 @@ namespace Setono\SyliusShopTheLookPlugin\Templating\Helper;
 
 use Setono\SyliusShopTheLookPlugin\Calculator\LookPriceCalculatorInterface;
 use Setono\SyliusShopTheLookPlugin\Model\LookInterface;
+use Sylius\Component\Core\Model\ProductVariantInterface;
 use Symfony\Component\Templating\Helper\Helper;
 
-class PriceHelper extends Helper
+class PriceHelper extends Helper implements PriceHelperInterface
 {
     private LookPriceCalculatorInterface $lookPriceCalculator;
 
@@ -19,17 +20,22 @@ class PriceHelper extends Helper
 
     public function getPrice(LookInterface $look, array $context): int
     {
-        return (int) round($this->getTotal($look, $context) * (1 - $look->getDiscount()));
+        return $this->lookPriceCalculator->calculatePrice($look, $context);
     }
 
     public function getDiscount(LookInterface $look, array $context): int
     {
-        return (int) round($this->getTotal($look, $context) * $look->getDiscount());
+        return $this->lookPriceCalculator->calculateDiscount($look, $context);
     }
 
     public function getTotal(LookInterface $look, array $context): int
     {
-        return $this->lookPriceCalculator->calculate($look, $context);
+        return $this->lookPriceCalculator->calculateTotal($look, $context);
+    }
+
+    public function getVariantDiscount(ProductVariantInterface $productVariant, LookInterface $look, array $context): int
+    {
+        return $this->lookPriceCalculator->calculateVariantDiscount($productVariant, $look, $context);
     }
 
     public function getName(): string

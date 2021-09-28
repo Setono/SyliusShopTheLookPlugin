@@ -12,6 +12,7 @@ use Sylius\Component\Core\Model\OrderItemInterface;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Order\Factory\AdjustmentFactoryInterface;
 use Sylius\Component\Order\Model\OrderInterface;
+use Sylius\Component\Order\Model\OrderItemUnitInterface;
 use Sylius\Component\Order\Processor\OrderProcessorInterface;
 use Webmozart\Assert\Assert;
 
@@ -65,31 +66,41 @@ final class LookDiscountOrderProcessor implements OrderProcessorInterface
             $productId = $product->getId();
             Assert::notNull($productId);
 
-            if (in_array($productId, $intersectedProductIds, true)) {
-                $currentDiscountAmount = abs($orderItem->getAdjustmentsTotal(AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT));
+            if (!in_array($productId, $intersectedProductIds, true)) {
+                continue;
+            }
 
-                // Restore original item total, without (another) look discount to correctly calculate (new) discount amount
-                $originalOrderItemTotal = $orderItem->getTotal() + $currentDiscountAmount;
+            foreach ($orderItem->getUnits() as $orderItemUnit) {
+                $currentDiscountAmount = abs($orderItemUnit->getAdjustmentsTotal(AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT));
 
-                $newDiscountAmount = (int) round($originalOrderItemTotal * $look->getDiscount(), 0);
+                // Restore original unit total, without (another) look discount to correctly calculate (new) discount amount
+                $originalUnitTotal = $orderItemUnit->getTotal() + $currentDiscountAmount;
+                $newDiscountAmount = (int) round($originalUnitTotal * $look->getDiscount(), 0);
 
                 // Remove current discount (if exists) and apply new one only if it greater than current one
                 if ($newDiscountAmount > $currentDiscountAmount) {
-                    $orderItem->removeAdjustments(AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT);
-                    $this->addAdjustment($orderItem, $look, $newDiscountAmount);
+                    $orderItemUnit->removeAdjustments(AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT);
+                    $this->addAdjustment($orderItemUnit, $look, $newDiscountAmount);
                 }
             }
         }
     }
 
-    private function addAdjustment(OrderItemInterface $orderItem, LookInterface $look, int $total): void
+    private function addAdjustment(OrderItemUnitInterface $orderItemUnit, LookInterface $look, int $unitAdjustmentAmount): void
     {
+        $code = $look->getCode();
+        Assert::notNull($code);
+
+        $name = $look->getName();
+        Assert::notNull($name);
+
         $adjustment = $this->adjustmentFactory->createWithData(
             AdjustmentInterface::ORDER_UNIT_LOOK_ADJUSTMENT,
-            (string) $look->getName(),
-            -1 * $total
+            $name,
+            -1 * $unitAdjustmentAmount
         );
-        $adjustment->setOriginCode((string) $look->getId());
-        $orderItem->addAdjustment($adjustment);
+
+        $adjustment->setOriginCode($code);
+        $orderItemUnit->addAdjustment($adjustment);
     }
 }
