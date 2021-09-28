@@ -17,6 +17,7 @@ class LookFixture extends AbstractResourceFixture
     protected function configureResourceNode(ArrayNodeDefinition $resourceNode): void
     {
         $lookNode = $resourceNode->children();
+        $lookNode->scalarNode('type')->defaultNull();
         $lookNode->scalarNode('code')->cannotBeEmpty();
         $lookNode->floatNode('discount');
         $lookNode->booleanNode('enabled');

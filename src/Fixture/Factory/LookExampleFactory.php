@@ -91,6 +91,7 @@ class LookExampleFactory extends AbstractExampleFactory
             $look = $this->lookFactory->createNew();
         }
 
+        $look->setType($options['type']);
         $look->setCode($options['code']);
         $look->setDiscount($options['discount']);
         $look->setPosition($options['position']);
@@ -197,6 +198,8 @@ class LookExampleFactory extends AbstractExampleFactory
 
                 return $name;
             })
+
+            ->setDefault('type', null)
 
             ->setDefault('code', static function (Options $options): string {
                 return StringInflector::nameToCode($options['name']);
