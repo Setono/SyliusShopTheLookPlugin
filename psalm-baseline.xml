@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
-  <file src="src/Controller/LookGenerateSlugAction.php">
-    <MixedArgument occurrences="1">
-      <code>$name</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$name</code>
-    </MixedAssignment>
-  </file>
   <file src="src/DependencyInjection/Configuration.php">
     <MixedMethodCall occurrences="129">
       <code>addDefaultsIfNotSet</code>
@@ -186,7 +178,7 @@
     <MissingClosureParamType occurrences="1">
       <code>$value</code>
     </MissingClosureParamType>
-    <MixedArgument occurrences="23">
+    <MixedArgument occurrences="24">
       <code>$imageOptions</code>
       <code>$imagePath</code>
       <code>$imagePath</code>
@@ -204,6 +196,7 @@
       <code>$options['name']</code>
       <code>$options['position']</code>
       <code>$options['slug'] ?? StringInflector::nameToCode($options['name'])</code>
+      <code>$options['type']</code>
       <code>$partOptions</code>
       <code>$partOptions['name']</code>
       <code>$partOptions['position']</code>
@@ -266,10 +259,5 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>ProductInterface|null</code>
     </UnnecessaryVarAnnotation>
-  </file>
-  <file src="tests/Templating/Helper/PriceHelperTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
 </files>
