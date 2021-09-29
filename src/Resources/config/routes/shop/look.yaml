@@ -8,7 +8,7 @@ setono_sylius_shop_the_look_shop_look_index:
             grid: setono_sylius_shop_the_look_shop_look
             
 setono_sylius_shop_the_look_shop_look_index_by_type:
-    path: /{type}
+    path: /by-type/{type}
     methods: [GET]
     defaults:
         _controller: setono_sylius_shop_the_look.controller.look:indexAction
