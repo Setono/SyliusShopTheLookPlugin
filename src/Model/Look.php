@@ -246,7 +246,7 @@ class Look implements LookInterface
         return $translation;
     }
 
-    protected function createTranslation(): LookTranslation
+    protected function createTranslation(): LookTranslationInterface
     {
         return new LookTranslation();
     }
