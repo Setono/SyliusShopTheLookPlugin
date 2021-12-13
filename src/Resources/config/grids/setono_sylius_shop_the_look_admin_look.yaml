@@ -17,6 +17,11 @@ sylius_grid:
                     sortable: ~
                     options:
                         template: "@SyliusUi/Grid/Field/position.html.twig"
+                type:
+                    type: string
+                    label: sylius.ui.type
+                    sortable: ~
+                    position: 20
                 code:
                     type: string
                     label: sylius.ui.code
@@ -29,6 +34,10 @@ sylius_grid:
                     label: setono_sylius_shop_the_look.ui.parts
                     options:
                         template: "@SetonoSyliusShopTheLookPlugin/admin/grid/field/parts.html.twig"
+                discount:
+                    type: string
+                    label: sylius.ui.discount
+                    sortable: ~
                 enabled:
                     type: twig
                     label: sylius.ui.enabled
