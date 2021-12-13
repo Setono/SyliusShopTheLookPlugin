@@ -8,7 +8,7 @@ sylius_grid:
                     repository:
                         method: createShopListQueryBuilder
                         arguments:
-                            - "%locale%"
+                            - "expr:service('sylius.context.locale').getLocaleCode()"
                             - $type
             sorting:
                 position: asc
