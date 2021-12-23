@@ -4,7 +4,7 @@
     "description": "Create looks for your Sylius store that let your customers buy more items",
     "license": "MIT",
     "require": {
-        "php": "^7.4",
+        "php": ">=7.4",
         "doctrine/collections": "^1.6",
         "doctrine/orm": "^2.7",
         "knplabs/knp-menu": "^3.1",
