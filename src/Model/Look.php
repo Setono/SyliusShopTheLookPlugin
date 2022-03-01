@@ -89,9 +89,9 @@ class Look implements LookInterface
         return $this->getDiscount() * 100;
     }
 
-    public function setDiscount(float $discount): void
+    public function setDiscount(?float $discount): void
     {
-        $this->discount = $discount;
+        $this->discount = $discount ?? 0.0;
     }
 
     public function isEnabled(): bool
