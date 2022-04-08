@@ -49,7 +49,7 @@ sylius_grid:
                     type: string
                     label: sylius.ui.search
                     options:
-                        fields: [code, translation.name]
+                        fields: [code, translations.name]
                 enabled:
                     type: boolean
                     label: sylius.ui.enabled
